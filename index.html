@@ -1,707 +1,1304 @@
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b1714">
-  <meta name="description" content="Manutenção residencial modular em San Bernardino e arredores: limpeza, jardim, prevenção, piscina e pequenos cuidados para sua casa.">
-  <meta property="og:title" content="A Rocha | Cuidado completo para sua casa">
-  <meta property="og:description" content="Escolha os serviços e a frequência que fazem sentido para a sua casa. Um pedido, um plano sob medida.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23dcb66b'/%3E%3Cpath d='M10 48 27 18l8 14 6-9 14 25H10Zm7 5h31' fill='none' stroke='%230b1714' stroke-width='4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
-  <title>A Rocha | Manutenção residencial em San Bernardino</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Rocha Gestão e Serviços | Manutenção, Reformas & Zeladoria no Paraguai</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#06241B',
+              forest: '#0C3B2E',
+              emerald: '#15803D',
+              accent: '#D97706',
+              gold: '#FBBF24',
+            }
+          }
+        }
+      }
+    };
+  </script>
   <style>
-    :root {
-      color-scheme: dark;
-      --bg: #0b1714;
-      --surface: #101f1a;
-      --card: #14251f;
-      --card-2: #192d25;
-      --line: rgba(229, 237, 226, .13);
-      --text: #f5f4ec;
-      --muted: #bdc8bf;
-      --quiet: #8d9a91;
-      --green: #acc6a3;
-      --green-deep: #254b39;
-      --gold: #dfb86e;
-      --gold-soft: rgba(223,184,110,.12);
-      --serif: Georgia, "Times New Roman", serif;
-      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --max: 1160px;
-      --radius: 22px;
+    .solid-nav {
+      background: #06241B;
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
-    body { margin: 0; color: var(--text); background: var(--bg); font: 16px/1.65 var(--sans); }
-    a { color: inherit; }
-    button, input, select, textarea { font: inherit; }
-    button, a { -webkit-tap-highlight-color: transparent; }
-    .wrap { width: min(var(--max), calc(100% - 44px)); margin: 0 auto; }
-    .skip { position: absolute; left: -999px; top: 8px; z-index: 100; padding: 12px 16px; color: #162018; background: var(--gold); border-radius: 9px; }
-    .skip:focus { left: 12px; }
-    .topbar { position: sticky; z-index: 50; top: 0; border-bottom: 1px solid var(--line); background: rgba(11,23,20,.93); backdrop-filter: blur(16px); }
-    .nav { display: flex; min-height: 76px; align-items: center; justify-content: space-between; gap: 20px; }
-    .brand { display: inline-flex; align-items: center; gap: 11px; flex-shrink: 0; text-decoration: none; }
-    .brand-mark { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 13px; color: #152018; background: var(--gold); }
-    .brand-mark svg { width: 22px; height: 22px; }
-    .brand-name { display: block; font-size: .88rem; font-weight: 900; letter-spacing: .12em; line-height: 1.15; }
-    .brand-sub { display: block; margin-top: 4px; color: var(--muted); font-size: .62rem; letter-spacing: .13em; text-transform: uppercase; }
-    .nav-links { display: flex; align-items: center; gap: 23px; }
-    .nav-links a { color: var(--muted); font-size: .8rem; font-weight: 700; text-decoration: none; transition: color .2s; }
-    .nav-links a:hover, .nav-links a:focus-visible { color: var(--gold); }
-    .nav-right { display: flex; align-items: center; gap: 10px; }
-    .lang-switch { display: inline-flex; padding: 3px; gap: 2px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.03); }
-    .lang-switch button { min-width: 40px; border: 0; border-radius: 999px; padding: 6px 9px; color: var(--muted); background: transparent; font-size: .68rem; font-weight: 850; cursor: pointer; }
-    .lang-switch button[aria-pressed="true"] { color: #172019; background: var(--gold); }
-    .button { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; gap: 9px; padding: 0 18px; border: 1px solid transparent; border-radius: 999px; font-size: .83rem; font-weight: 850; text-decoration: none; cursor: pointer; transition: transform .2s, background .2s, border-color .2s; }
-    .button:hover { transform: translateY(-1px); }
-    [hidden] { display: none !important; }
-    .button-primary { color: #172019; background: var(--gold); }
-    .button-primary:hover { background: #efcc88; }
-    .button-outline { color: var(--text); border-color: var(--line); background: rgba(255,255,255,.035); }
-    .button-outline:hover { border-color: rgba(223,184,110,.55); background: var(--gold-soft); }
-    .nav-cta { min-height: 40px; padding: 0 15px; font-size: .76rem; }
-    .menu-toggle { display: none; width: 42px; height: 42px; place-items: center; border: 1px solid var(--line); border-radius: 12px; color: var(--text); background: transparent; cursor: pointer; }
-    .menu-toggle svg { width: 20px; height: 20px; }
-    .usage-section { padding: 42px 0 56px; border-top: 1px solid var(--line); background: linear-gradient(180deg,rgba(172,198,163,.035),transparent); }
-    .usage-heading { display: flex; align-items: end; justify-content: space-between; gap: 22px; margin-bottom: 18px; }
-    .usage-heading h2 { max-width: 560px; margin: 10px 0 0; font: 500 clamp(1.7rem,3.2vw,2.4rem)/1.08 var(--serif); letter-spacing: -.025em; }
-    .usage-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
-    .usage-card { min-height: 190px; padding: 22px; border: 1px solid var(--line); border-radius: 19px; background: var(--card); }
-    .usage-card:nth-child(2) { background: linear-gradient(145deg,rgba(223,184,110,.08),var(--card)); }
-    .usage-index { color: var(--gold); font: 500 1.1rem/1 var(--serif); }
-    .usage-card h3 { margin: 16px 0 7px; font: 500 1.35rem/1.15 var(--serif); }
-    .usage-card p { margin: 0; color: var(--muted); font-size: .77rem; }
-    .one-off-banner { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 22px; padding: 19px 21px; border: 1px solid rgba(223,184,110,.22); border-radius: 18px; background: var(--gold-soft); }
-    .one-off-banner strong { display: block; font-size: .9rem; }
-    .one-off-banner p { margin: 4px 0 0; color: var(--muted); font-size: .76rem; }
-    .hero { position: relative; overflow: hidden; padding: 72px 0 58px; background: radial-gradient(ellipse at 86% 14%, rgba(91,131,99,.16), transparent 42%), var(--bg); }
-    .hero::after { position: absolute; top: -320px; right: -250px; width: 670px; height: 670px; border: 1px solid rgba(223,184,110,.12); border-radius: 50%; content: ""; pointer-events: none; }
-    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.03fr .97fr; align-items: center; gap: 50px; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--gold); font-size: .7rem; font-weight: 850; letter-spacing: .16em; line-height: 1.4; text-transform: uppercase; }
-    .eyebrow::before { width: 21px; height: 1px; background: currentColor; content: ""; }
-    .hero-kicker { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 22px; padding: 8px 12px; border: 1px solid rgba(172,198,163,.22); border-radius: 999px; color: var(--green); background: rgba(172,198,163,.07); font-size: .73rem; font-weight: 800; }
-    .hero-kicker svg { width: 15px; height: 15px; }
-    h1 { max-width: 680px; margin: 15px 0 20px; font: 500 clamp(3rem, 6vw, 5.25rem)/.99 var(--serif); letter-spacing: -.055em; }
-    h1 em { color: var(--green); font-style: italic; }
-    .hero-copy > p { max-width: 575px; margin: 0; color: var(--muted); font-size: 1.05rem; line-height: 1.75; }
-    .hero-copy > p strong { color: var(--text); }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 27px; }
-    .hero-points { display: flex; flex-wrap: wrap; gap: 15px 20px; margin: 25px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: .76rem; }
-    .hero-points li { display: inline-flex; align-items: center; gap: 7px; }
-    .hero-points li::before { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); content: ""; }
-    .hero-visual { position: relative; padding: 10px; border: 1px solid rgba(229,237,226,.15); border-radius: 27px; background: rgba(255,255,255,.035); box-shadow: 0 27px 72px rgba(0,0,0,.31); }
-    .hero-visual img { display: block; width: 100%; aspect-ratio: 1.13 / 1; object-fit: cover; border-radius: 19px; background: linear-gradient(145deg,#1b3026,#859070); }
-    .visual-caption { display: flex; justify-content: space-between; gap: 12px; padding: 11px 8px 1px; color: var(--quiet); font-size: .67rem; }
-    .visual-caption b { color: var(--muted); }
-    .visual-stamp { position: absolute; bottom: 77px; left: -17px; display: flex; align-items: center; gap: 10px; padding: 13px 15px; border: 1px solid var(--line); border-radius: 15px; background: #172821; box-shadow: 0 12px 32px rgba(0,0,0,.3); }
-    .stamp-icon { display: grid; width: 36px; height: 36px; place-items: center; border-radius: 11px; color: var(--green); background: rgba(172,198,163,.13); }
-    .stamp-icon svg { width: 18px; height: 18px; }
-    .visual-stamp strong { display: block; font-size: .73rem; }
-    .visual-stamp small { display: block; color: var(--muted); font-size: .65rem; }
-    .trust-strip { display: grid; grid-template-columns: repeat(3,1fr); margin-top: 53px; padding-top: 21px; border-top: 1px solid var(--line); }
-    .trust-item { padding: 0 20px; border-left: 1px solid var(--line); }
-    .trust-item:first-child { padding-left: 0; border-left: 0; }
-    .trust-item strong { display: block; color: var(--green); font: 500 1.24rem/1.15 var(--serif); }
-    .trust-item span { display: block; margin-top: 5px; color: var(--quiet); font-size: .73rem; }
-    .section { padding: 88px 0; border-top: 1px solid var(--line); }
-    .section-head { max-width: 720px; margin-bottom: 37px; }
-    .section-head h2 { margin: 13px 0 12px; font: 500 clamp(2.15rem,4.5vw,3.5rem)/1.06 var(--serif); letter-spacing: -.04em; }
-    .section-head p { margin: 0; color: var(--muted); font-size: .98rem; }
-    .service-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin: 0 0 17px; padding: 14px 17px; border: 1px solid rgba(223,184,110,.2); border-radius: 14px; background: var(--gold-soft); color: #ead9b8; font-size: .77rem; }
-    .service-toolbar strong { color: var(--text); }
-    .service-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
-    .service-card { position: relative; display: flex; min-height: 218px; flex-direction: column; padding: 23px; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(145deg,rgba(255,255,255,.036),rgba(255,255,255,.012)); cursor: pointer; transition: transform .2s,border-color .2s,background .2s; }
-    .service-card:hover { transform: translateY(-3px); border-color: rgba(172,198,163,.42); }
-    .service-card:has(input:checked) { border-color: rgba(223,184,110,.72); background: linear-gradient(145deg,rgba(223,184,110,.11),rgba(255,255,255,.02)); }
-    .service-card input { position: absolute; top: 15px; right: 15px; width: 20px; height: 20px; accent-color: var(--gold); cursor: pointer; }
-    .service-icon { display: grid; width: 45px; height: 45px; place-items: center; margin-bottom: 18px; border-radius: 14px; color: var(--green); background: rgba(172,198,163,.1); }
-    .service-icon svg { width: 22px; height: 22px; }
-    .service-card h3 { margin: 0 26px 8px 0; font: 500 1.36rem/1.16 var(--serif); }
-    .service-card p { margin: 0; color: var(--muted); font-size: .77rem; line-height: 1.6; }
-    .service-tag { display: inline-flex; align-self: flex-start; margin-top: auto; padding-top: 15px; color: var(--gold); font-size: .65rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-    .selection-preview { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 17px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 15px; background: var(--surface); }
-    .selection-preview p { margin: 0; color: var(--muted); font-size: .8rem; }
-    .selection-preview strong { color: var(--green); }
-    .selection-preview a { flex-shrink: 0; color: var(--gold); font-size: .78rem; font-weight: 850; text-decoration: none; }
-    .local-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 15px; }
-    .local-card { padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
-    .local-card .local-mark { display: grid; width: 42px; height: 42px; place-items: center; margin-bottom: 17px; border: 1px solid rgba(223,184,110,.19); border-radius: 13px; color: var(--gold); background: var(--gold-soft); }
-    .local-mark svg { width: 21px; height: 21px; }
-    .local-card h3 { margin: 0 0 8px; font: 500 1.38rem/1.15 var(--serif); }
-    .local-card p { margin: 0; color: var(--muted); font-size: .78rem; }
-    .local-card a { color: var(--green); text-decoration-color: rgba(172,198,163,.36); text-underline-offset: 3px; }
-    .local-disclaimer { margin: 15px 0 0; color: var(--quiet); font-size: .72rem; }
-    .plan-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 15px; }
-    .plan-card { display: flex; min-height: 265px; flex-direction: column; padding: 25px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
-    .plan-card.is-featured { border-color: rgba(223,184,110,.58); background: linear-gradient(150deg,rgba(223,184,110,.1),var(--card) 62%); }
-    .plan-kicker { color: var(--green); font-size: .68rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
-    .is-featured .plan-kicker { color: var(--gold); }
-    .plan-card h3 { margin: 12px 0 8px; font: 500 1.72rem/1.08 var(--serif); }
-    .plan-card > p { margin: 0; color: var(--muted); font-size: .8rem; }
-    .plan-card ul { display: grid; gap: 8px; margin: 17px 0 21px; padding: 0; list-style: none; color: var(--muted); font-size: .76rem; }
-    .plan-card li::before { margin-right: 8px; color: var(--green); content: "✓"; font-weight: 900; }
-    .plan-card .button { width: 100%; margin-top: auto; }
-    .plan-note { margin-top: 16px; color: var(--quiet); font-size: .73rem; }
-    .flow-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 13px; }
-    .flow-card { padding: 21px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.025); }
-    .flow-number { display: block; margin-bottom: 26px; color: var(--gold); font: 500 1.5rem/1 var(--serif); }
-    .flow-card h3 { margin: 0 0 7px; font-size: .91rem; }
-    .flow-card p { margin: 0; color: var(--muted); font-size: .76rem; }
-    .promise-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; }
-    .promise-main, .promise-aside { padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
-    .promise-main h3, .promise-aside h3 { margin: 13px 0 10px; font: 500 1.8rem/1.12 var(--serif); }
-    .promise-main > p, .promise-aside > p { color: var(--muted); font-size: .86rem; }
-    .promise-list { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-top: 22px; }
-    .promise-item { padding: 15px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.02); }
-    .promise-item strong { display: block; margin-bottom: 5px; font-size: .79rem; }
-    .promise-item span { color: var(--muted); font-size: .72rem; }
-    .promise-aside { background: radial-gradient(ellipse at 100% 0,rgba(172,198,163,.12),transparent 48%),#16251f; }
-    .promise-aside ul { display: grid; gap: 12px; padding: 0; margin: 20px 0 0; list-style: none; }
-    .promise-aside li { display: flex; gap: 10px; color: var(--muted); font-size: .78rem; }
-    .promise-aside li::before { flex: 0 0 17px; color: var(--green); content: "✓"; font-weight: 900; }
-    .faq-list { display: grid; gap: 9px; max-width: 850px; }
-    .faq-list details { border: 1px solid var(--line); border-radius: 15px; background: var(--card); }
-    .faq-list summary { position: relative; padding: 16px 48px 16px 18px; font-size: .84rem; font-weight: 800; cursor: pointer; list-style: none; }
-    .faq-list summary::-webkit-details-marker { display: none; }
-    .faq-list summary::after { position: absolute; top: 14px; right: 18px; color: var(--gold); content: "+"; font-size: 1.25rem; }
-    .faq-list details[open] summary::after { content: "−"; }
-    .faq-list details p { margin: 0; padding: 0 18px 18px; color: var(--muted); font-size: .78rem; }
-    .contact-shell { display: grid; grid-template-columns: .8fr 1.2fr; overflow: hidden; border: 1px solid var(--line); border-radius: 27px; background: var(--card); }
-    .contact-info { padding: 34px; background: radial-gradient(ellipse at 4% 100%,rgba(172,198,163,.12),transparent 45%),#12221c; }
-    .contact-info h2 { margin: 13px 0 12px; font: 500 clamp(2rem,4vw,3.1rem)/1.06 var(--serif); letter-spacing: -.035em; }
-    .contact-info > p { color: var(--muted); font-size: .84rem; }
-    .contact-list { display: grid; gap: 16px; margin-top: 27px; padding-top: 22px; border-top: 1px solid var(--line); }
-    .contact-item { display: flex; align-items: flex-start; gap: 11px; color: var(--muted); font-size: .76rem; }
-    .contact-item svg { flex: 0 0 17px; margin-top: 2px; color: var(--gold); }
-    .contact-item strong { display: block; margin-bottom: 2px; color: var(--text); font-size: .78rem; }
-    .quote-form { padding: 34px; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-    .field { display: grid; gap: 7px; }
-    .field.full { grid-column: 1 / -1; }
-    .field label, .form-legend { color: var(--muted); font-size: .7rem; font-weight: 850; letter-spacing: .06em; text-transform: uppercase; }
-    .field input, .field select, .field textarea { width: 100%; min-height: 45px; padding: 11px 13px; border: 1px solid rgba(229,237,226,.18); border-radius: 11px; outline: none; color: var(--text); background: #0e1b17; font-size: .82rem; }
-    .field textarea { min-height: 95px; resize: vertical; }
-    .field input::placeholder, .field textarea::placeholder { color: #78877e; }
-    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(172,198,163,.12); }
-    select option { color: var(--text); background: #0e1b17; }
-    .submit-row { display: grid; gap: 9px; margin-top: 18px; }
-    .submit-row .button { width: 100%; border: 0; }
-    .form-privacy { margin: 0; color: var(--quiet); font-size: .69rem; }
-    .form-error { display: none; margin: 0; color: #f1b6a7; font-size: .75rem; }
-    .form-error.show { display: block; }
-    dialog { width: min(560px,calc(100% - 28px)); max-height: min(85vh,720px); padding: 0; border: 1px solid var(--line); border-radius: 22px; color: var(--text); background: #14231d; box-shadow: 0 28px 90px rgba(0,0,0,.6); }
-    dialog::backdrop { background: rgba(0,0,0,.72); backdrop-filter: blur(5px); }
-    .dialog-inner { padding: 25px; }
-    .dialog-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; }
-    .dialog-head h2 { margin: 0; font: 500 1.6rem/1.1 var(--serif); }
-    .dialog-close { display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid var(--line); border-radius: 10px; color: var(--text); background: transparent; cursor: pointer; }
-    .dialog-copy { margin: 12px 0 16px; color: var(--muted); font-size: .8rem; }
-    .message-preview { max-height: 250px; overflow: auto; white-space: pre-wrap; padding: 14px; border: 1px solid var(--line); border-radius: 12px; color: var(--muted); background: #0e1b17; font: .75rem/1.6 ui-monospace,SFMono-Regular,Menlo,monospace; }
-    .dialog-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 15px; }
-    .dialog-actions .button { flex: 1 1 160px; }
-    .dialog-status { min-height: 20px; margin: 10px 0 0; color: var(--green); font-size: .73rem; }
-    .footer { position: relative; z-index: 31; padding: 29px 0 36px; border-top: 1px solid var(--line); color: var(--quiet); background: var(--bg); font-size: .71rem; }
-    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
-    .footer-brand { color: var(--muted); font-weight: 850; letter-spacing: .1em; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 14px; }
-    .footer-links a { color: var(--muted); text-decoration-color: rgba(189,200,191,.3); text-underline-offset: 3px; }
-    .bottom-cta { position: fixed; right: 17px; bottom: 17px; z-index: 30; box-shadow: 0 12px 30px rgba(0,0,0,.3); }
-    :focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
-    @media (max-width: 980px) {
-      .nav-links { gap: 13px; }
-      .nav-links a { font-size: .73rem; }
-      .nav-cta { display: none; }
-      .hero-grid { gap: 31px; }
-      .service-grid { grid-template-columns: repeat(2,1fr); }
-      .flow-grid { grid-template-columns: repeat(2,1fr); }
+    .card-hover {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    @media (max-width: 690px) {
-      .wrap { width: min(var(--max),calc(100% - 32px)); }
-      .nav { min-height: 67px; }
-      .menu-toggle { display: grid; }
-      .nav-links { position: absolute; top: 66px; right: 0; left: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 9px 18px 17px; border-bottom: 1px solid var(--line); background: rgba(11,23,20,.98); }
-      .nav-links.open { display: flex; }
-      .nav-links a { padding: 11px 5px; border-bottom: 1px solid var(--line); font-size: .88rem; }
-      .hero { padding: 52px 0 43px; }
-      .hero-grid, .promise-grid, .contact-shell { grid-template-columns: 1fr; }
-      .hero-grid { gap: 30px; }
-      h1 { font-size: clamp(2.9rem,14vw,4.4rem); }
-      .hero-copy > p { font-size: .96rem; }
-      .hero-visual { margin: 0 3px; }
-      .hero-visual img { aspect-ratio: 1.1 / .84; }
-      .visual-stamp { bottom: 75px; left: -7px; }
-      .trust-strip { margin-top: 34px; gap: 12px; }
-      .trust-item { padding: 0 0 0 11px; }
-      .trust-item strong { font-size: 1.06rem; }
-      .trust-item span { font-size: .66rem; line-height: 1.4; }
-      .section { padding: 69px 0; }
-      .section-head { margin-bottom: 27px; }
-      .section-head h2 { font-size: 2.45rem; }
-      .service-grid, .local-grid, .plan-grid { grid-template-columns: 1fr; }
-      .usage-grid { grid-template-columns: 1fr; }
-      .usage-heading { align-items: flex-start; flex-direction: column; }
-      .one-off-banner { align-items: flex-start; flex-direction: column; }
-      .one-off-banner .button { width: 100%; }
-      .service-card { min-height: 190px; }
-      .service-toolbar, .selection-preview { align-items: flex-start; flex-direction: column; }
-      .selection-preview a { align-self: flex-start; }
-      .flow-grid { grid-template-columns: 1fr 1fr; }
-      .promise-main, .promise-aside, .contact-info, .quote-form { padding: 23px; }
-      .promise-list { grid-template-columns: 1fr; }
-      .form-grid { grid-template-columns: 1fr; }
-      .field.full { grid-column: auto; }
-      .footer-row { align-items: flex-start; flex-direction: column; }
-      .bottom-cta { right: 12px; bottom: 12px; min-height: 43px; padding: 0 14px; }
-    }
-    @media (max-width: 390px) {
-      .hero-actions .button { width: 100%; }
-      .trust-strip { grid-template-columns: 1fr; gap: 11px; }
-      .trust-item { padding: 0; border: 0; }
-      .flow-grid { grid-template-columns: 1fr; }
-      .visual-caption { flex-direction: column; gap: 3px; }
-      .visual-stamp { bottom: 83px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      *,*::before,*::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.12), 0 8px 10px -6px rgba(15, 23, 42, 0.08);
     }
   </style>
 </head>
-<body>
-  <a class="skip" href="#conteudo" data-i18n="skip">Pular para o conteúdo</a>
-  <header class="topbar">
-    <div class="wrap nav">
-      <a class="brand" href="#inicio" aria-label="A Rocha — início">
-        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 19 9.2 8l3.1 5.2 2.3-3.5L21 19H3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M5 21h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
-        <span><span class="brand-name">A ROCHA</span><span class="brand-sub" data-i18n="brandSub">Gestão e Serviços Residenciais</span></span>
-      </a>
-      <nav class="nav-links" id="navLinks" aria-label="Navegação principal">
-        <a href="#servicos" data-i18n="navServices">Serviços</a>
-        <a href="#planos" data-i18n="navPlans">Planos</a>
-        <a href="#como-funciona" data-i18n="navHow">Como funciona</a>
-        <a href="#duvidas" data-i18n="navFaq">Dúvidas</a>
-      </nav>
-      <div class="nav-right">
-        <div class="lang-switch" role="group" aria-label="Idioma">
-          <button type="button" id="langPt" aria-pressed="true" onclick="setLanguage('pt')">PT</button>
-          <button type="button" id="langEs" aria-pressed="false" onclick="setLanguage('es')">ES</button>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-amber-400 selection:text-slate-950">
+
+  <!-- ==================== TOP NAVIGATION ==================== -->
+  <header class="fixed top-0 inset-x-0 z-50 solid-nav border-b border-emerald-900/80 text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Brand Logo -->
+        <a href="#inicio" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-xl bg-amber-400 flex items-center justify-center text-slate-950 font-extrabold text-xl shadow-md group-hover:scale-105 transition">
+            <i class="fa-solid fa-mountain-sun"></i>
+          </div>
+          <div>
+            <span class="font-display font-extrabold text-lg sm:text-xl tracking-tight text-white block leading-none">
+              A ROCHA
+            </span>
+            <span class="text-[11px] uppercase tracking-[0.18em] text-amber-300 font-bold block mt-1" data-i18n="brand_sub">
+              Gestão e Serviços
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Links -->
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-white">
+          <a href="#vantagens" class="hover:text-amber-300 transition" data-i18n="nav_why">Diferenciais</a>
+          <a href="#servicos" class="hover:text-amber-300 transition" data-i18n="nav_services">Nossos Serviços</a>
+          <a href="#planos" class="hover:text-amber-300 transition" data-i18n="nav_plans">Planos & Preços</a>
+          <a href="#como-funciona" class="hover:text-amber-300 transition" data-i18n="nav_how">Como Funciona</a>
+          <a href="#orcamento" class="hover:text-amber-300 transition" data-i18n="nav_contact">Orçamento</a>
+        </nav>
+
+        <!-- Controls: Language Switcher & WhatsApp CTA -->
+        <div class="flex items-center gap-3">
+          <!-- PT / ES Switcher -->
+          <div class="flex items-center bg-emerald-950 rounded-xl p-1 border border-emerald-700/70">
+            <button onclick="setLanguage('pt')" id="btn-pt" class="px-2.5 py-1.5 rounded-lg text-xs font-extrabold transition bg-amber-400 text-slate-950">
+              🇧🇷 PT
+            </button>
+            <button onclick="setLanguage('es')" id="btn-es" class="px-2.5 py-1.5 rounded-lg text-xs font-extrabold transition text-white hover:text-amber-300">
+              🇵🇾 ES
+            </button>
+          </div>
+
+          <a href="#orcamento" class="hidden sm:inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold px-4 py-2.5 rounded-xl shadow transition">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            <span data-i18n="nav_cta">Solicitar Orçamento</span>
+          </a>
+
+          <!-- Mobile Hamburger -->
+          <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-xl bg-emerald-900 hover:bg-emerald-800 text-white" aria-label="Menu">
+            <i class="fa-solid fa-bars text-lg"></i>
+          </button>
         </div>
-        <a class="button button-primary nav-cta" href="#contato" data-i18n="navCta">Pedir orçamento</a>
-        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </button>
       </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-brand-dark border-t border-emerald-800 px-4 pt-3 pb-6 space-y-2 text-white">
+      <a href="#vantagens" onclick="closeMobileMenu()" class="block px-3 py-2.5 rounded-xl hover:bg-emerald-900 text-sm font-semibold" data-i18n="nav_why">Diferenciais</a>
+      <a href="#servicos" onclick="closeMobileMenu()" class="block px-3 py-2.5 rounded-xl hover:bg-emerald-900 text-sm font-semibold" data-i18n="nav_services">Nossos Serviços</a>
+      <a href="#planos" onclick="closeMobileMenu()" class="block px-3 py-2.5 rounded-xl hover:bg-emerald-900 text-sm font-semibold" data-i18n="nav_plans">Planos & Preços</a>
+      <a href="#como-funciona" onclick="closeMobileMenu()" class="block px-3 py-2.5 rounded-xl hover:bg-emerald-900 text-sm font-semibold" data-i18n="nav_how">Como Funciona</a>
+      <a href="#orcamento" onclick="closeMobileMenu()" class="block mt-3 text-center bg-amber-400 text-slate-950 font-extrabold py-3 rounded-xl text-sm" data-i18n="nav_cta">Solicitar Orçamento</a>
     </div>
   </header>
 
-  <main id="conteudo">
-    <section class="hero" id="inicio">
-      <div class="wrap">
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <div class="hero-kicker"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-4.3 7-11a7 7 0 1 0-14 0c0 6.7 7 11 7 11Z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="10" r="2.2" stroke="currentColor" stroke-width="1.7"/></svg><span data-i18n="heroKicker">San Bernardino e localidades próximas</span></div>
-            <span class="eyebrow" data-i18n="heroEyebrow">Cuidado residencial flexível</span>
-            <h1><span data-i18n="heroTitle1">Sua casa bem cuidada,</span> <em data-i18n="heroTitle2">sem você ter que cuidar de tudo.</em></h1>
-            <p data-i18n="heroText">Limpeza, jardim, manutenção preventiva e serviços complementares num só lugar. <strong>Você escolhe o que precisa.</strong> Nós organizamos a rotina e enviamos um resumo do que foi feito.</p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="#servicos"><span data-i18n="heroBtn1">Montar meu plano</span><span aria-hidden="true">↓</span></a>
-              <a class="button button-outline" href="#como-funciona" data-i18n="heroBtn2">Ver como funciona</a>
+  <!-- ==================== HERO SECTION (CLEAN SPLIT LAYOUT - ZERO TEXT OVERLAP) ==================== -->
+  <section id="inicio" class="bg-brand-dark pt-28 pb-16 lg:pt-32 lg:pb-24 border-b border-emerald-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        
+        <!-- Left Content: Solid Dark Emerald Canvas for 100% Sharp Text Legibility -->
+        <div class="lg:col-span-6 text-white space-y-6">
+          <div class="inline-flex items-center gap-2.5 bg-emerald-900/90 border border-emerald-600/60 px-4 py-2 rounded-full text-xs sm:text-sm font-bold text-amber-300">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+            <span data-i18n="hero_badge">Hugua Hú • Atyrá • Altos • Caacupé • San Bernardino</span>
+          </div>
+
+          <h1 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-[50px] text-white leading-[1.14] tracking-tight" data-i18n="hero_title">
+            Sua Casa ou Quinta Sempre Impecável. <span class="text-amber-300">Tudo em Um Só Lugar.</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-100 leading-relaxed font-normal" data-i18n="hero_subtitle">
+            Na <strong class="text-white font-bold">A Rocha Gestão e Serviços</strong>, cuidamos de reformas rápidas ("Marido de Aluguel"), limpeza pós-obra, jardinagem, manutenção de piscinas e zeladoria semanal com <strong class="text-amber-300 font-semibold">relatórios por foto no WhatsApp</strong> e <strong class="text-white font-semibold">Factura Legal</strong>.
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-col sm:flex-row gap-4 pt-2">
+            <a href="#planos" class="inline-flex items-center justify-center gap-2.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold px-7 py-4 rounded-2xl shadow-lg transition text-base">
+              <i class="fa-solid fa-layer-group"></i>
+              <span data-i18n="hero_btn_plans">Ver 5 Planos e Preços</span>
+            </a>
+            <a href="#orcamento" class="inline-flex items-center justify-center gap-2.5 bg-emerald-700 hover:bg-emerald-600 border border-emerald-500 text-white font-bold px-7 py-4 rounded-2xl transition text-base">
+              <i class="fa-brands fa-whatsapp text-xl"></i>
+              <span data-i18n="hero_btn_quote">Orçamento Rápido</span>
+            </a>
+          </div>
+
+          <!-- Trust Metrics -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-emerald-800">
+            <div>
+              <p class="font-display font-extrabold text-xl sm:text-2xl text-amber-300" data-i18n="stat_1_v">Gestão Total</p>
+              <p class="text-xs sm:text-sm text-slate-200 font-medium mt-0.5" data-i18n="stat_1">Manutenção e obras</p>
             </div>
-            <ul class="hero-points"><li data-i18n="heroPoint1">Serviços conforme sua necessidade</li><li data-i18n="heroPoint2">Frequência combinada</li><li data-i18n="heroPoint3">Orçamento antes de executar extras</li></ul>
-          </div>
-          <div class="hero-visual">
-            <img src="assets/quinta-conceito.jpg" alt="Imagem ilustrativa de uma casa com piscina, jardim e área coberta">
-            <div class="visual-stamp"><span class="stamp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v14H4z" stroke="currentColor" stroke-width="1.7"/><circle cx="9" cy="10" r="1.5" stroke="currentColor" stroke-width="1.5"/><path d="m5 17 5-4 3 2 3-3 3 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong data-i18n="stampTitle">Cuidado com prestação de contas</strong><small data-i18n="stampSub">Resumo visual após as visitas combinadas</small></span></div>
-            <div class="visual-caption"><b data-i18n="visualCaption">Uma casa em boas condições, todos os dias</b><span data-i18n="visualNote">Imagem ilustrativa</span></div>
-          </div>
-        </div>
-        <div class="trust-strip" aria-label="Resumo da proposta">
-          <div class="trust-item"><strong data-i18n="trust1Title">Um só contato</strong><span data-i18n="trust1Text">Para coordenar os serviços escolhidos</span></div>
-          <div class="trust-item"><strong data-i18n="trust2Title">Plano flexível</strong><span data-i18n="trust2Text">Selecione módulos e frequência</span></div>
-          <div class="trust-item"><strong data-i18n="trust3Title">Mais previsibilidade</strong><span data-i18n="trust3Text">Escopo e extras combinados antes</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="usage-section" aria-labelledby="usageTitle">
-      <div class="wrap">
-        <div class="usage-heading"><div><span class="eyebrow" data-i18n="usageEyebrow">Um formato para cada jeito de viver a casa</span><h2 id="usageTitle" data-i18n="usageTitle">Residência habitual, casa de temporada ou uma tarefa só.</h2></div></div>
-        <div class="usage-grid">
-          <article class="usage-card"><span class="usage-index">01</span><h3 data-i18n="usage1Title">Casa de uso contínuo</h3><p data-i18n="usage1Text">Monte uma rotina semanal, quinzenal ou mensal de limpeza, jardim e manutenção preventiva para o dia a dia.</p></article>
-          <article class="usage-card"><span class="usage-index">02</span><h3 data-i18n="usage2Title">Casa de temporada</h3><p data-i18n="usage2Text">Combine preparação antes da chegada, limpeza após estadias e visitas entre períodos de uso, conforme agenda e cobertura.</p></article>
-          <article class="usage-card"><span class="usage-index">03</span><h3 data-i18n="usage3Title">Serviço pontual, sem assinatura</h3><p data-i18n="usage3Text">Peça uma limpeza profunda, uma visita de jardim, uma checagem após chuva ou um pequeno reparo sob orçamento.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="servicos">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="eyebrow" data-i18n="servicesEyebrow">Escolha o que faz sentido para você</span>
-          <h2 data-i18n="servicesTitle">Um serviço completo, montado do seu jeito.</h2>
-          <p data-i18n="servicesIntro">Marque os cuidados que procura. Você pode combinar serviços recorrentes e chamados avulsos; a proposta final será definida conforme o tamanho do imóvel, a frequência e a região.</p>
-        </div>
-        <div class="service-toolbar"><span><strong data-i18n="serviceToolbarStrong">Selecione um ou mais módulos.</strong> <span data-i18n="serviceToolbarText">A seleção segue para o pedido de orçamento.</span></span><span id="selectedCount" aria-live="polite" data-i18n="noneSelected">Nenhum selecionado</span></div>
-        <fieldset style="border:0;margin:0;padding:0">
-          <legend class="skip" data-i18n="serviceLegend">Selecione os serviços desejados</legend>
-          <div class="service-grid">
-            <label class="service-card">
-              <input type="checkbox" name="services" form="quoteForm" value="limpeza" data-label-pt="Limpeza residencial" data-label-es="Limpieza residencial" aria-label="Selecionar limpeza residencial">
-              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m4 15 9-9 5 5-9 9H4v-5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m12 7 5 5M3 21h18M16.5 3.5l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
-              <h3 data-i18n="srv1Title">Limpeza residencial</h3><p data-i18n="srv1Text">Rotina semanal ou quinzenal, limpeza profunda e organização básica de áreas combinadas.</p><span class="service-tag" data-i18n="tagRecurring">Recorrente ou avulso</span>
-            </label>
-            <label class="service-card">
-              <input type="checkbox" name="services" form="quoteForm" value="jardim" data-label-pt="Jardim e áreas externas" data-label-es="Jardín y áreas exteriores" aria-label="Selecionar jardim e áreas externas">
-              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M20.5 3.5c-8.7 0-14.7 3.1-14.7 9.2 0 3.5 2.6 5.7 5.7 5.7 6.1 0 9-6 9-14.9Z" stroke="currentColor" stroke-width="1.7"/><path d="M3 21c2.6-5.2 6.6-8.3 12-10.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
-              <h3 data-i18n="srv2Title">Jardim e áreas externas</h3><p data-i18n="srv2Text">Corte de grama, acabamento, limpeza de folhas e retirada de resíduos verdes.</p><span class="service-tag" data-i18n="tagRecurring">Recorrente ou avulso</span>
-            </label>
-            <label class="service-card">
-              <input type="checkbox" name="services" form="quoteForm" value="checkup" data-label-pt="Check-up preventivo da casa" data-label-es="Revisión preventiva del hogar" aria-label="Selecionar check-up preventivo">
-              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 21v-7h6v7m-3-13v3m-1.5-1.5h3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
-              <h3 data-i18n="srv3Title">Check-up preventivo</h3><p data-i18n="srv3Text">Verificação visual de torneiras, vazamentos aparentes, portas, janelas e pontos combinados.</p><span class="service-tag" data-i18n="tagScheduled">Visita programada</span>
-            </label>
-            <label class="service-card">
-              <input type="checkbox" name="services" form="quoteForm" value="chuva" data-label-pt="Calhas e escoamento de chuva" data-label-es="Canaletas y desagüe pluvial" aria-label="Selecionar calhas e escoamento">
-              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 13.5h16l-1.5 5H5.5l-1.5-5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M6 13 8 5m4 8V4m4 9-2-8m1 13v2m-6-2v2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
-              <h3 data-i18n="srv4Title">Calhas e chuva</h3><p data-i18n="srv4Text">Inspeção visual, limpeza acessível de calhas e orientação sobre pontos de escoamento.</p><span class="service-tag" data-i18n="tagPreventive">Manutenção preventiva</span>
-            </label>
-            <label class="service-card">
-              <input type="checkbox" name="services" form="quoteForm" value="hidraulica" data-label-pt="Pequenos cuidados hidráulicos" data-label-es="Mantenimiento hidráulico básico" aria-label="Selecionar cuidados hidráulicos">
-              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3s6 6.4 6 11a6 6 0 1 1-12 0c0-4.6 6-11 6-11Z" stroke="currentColor" stroke-width="1.7"/><path d="M9.5 15a2.5 2.5 0 0 0 2.5 2.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
-              <h3 data-i18n="srv5Title">Água e hidráulica básica</h3><p data-i18n="srv5Text">Inspeção de vazamentos aparentes, boias, válvulas e conexões; serviços maiores sob avaliação.</p><span class="service-tag" data-i18n="tagQuote">Avaliação e orçamento</span>
-            </label>
-            <label class="service-card">
-              <input type="checkbox" name="services" form="quoteForm" value="piscina" data-label-pt="Piscina e equipamentos" data-label-es="Piscina y equipos" aria-label="Selecionar piscina">
-              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 13c1.5 0 1.5-1 3-1s1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1M3 17c1.5 0 1.5-1 3-1s1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1M7 8l2-3 2 3m4 0 2-3 2 3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <h3 data-i18n="srv6Title">Piscina e equipamentos</h3><p data-i18n="srv6Text">Limpeza, checagem de circulação e cuidado da água conforme avaliação e rotina acordada.</p><span class="service-tag" data-i18n="tagTech">Conforme disponibilidade técnica</span>
-            </label>
-            <label class="service-card">
-              <input type="checkbox" name="services" form="quoteForm" value="ar" data-label-pt="Ar-condicionado" data-label-es="Aire acondicionado" aria-label="Selecionar ar-condicionado">
-              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v9H4z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8 18c0 1.5-1.5 1.5-1.5 3m6-3c0 1.5-1.5 1.5-1.5 3m6-3c0 1.5-1.5 1.5-1.5 3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
-              <h3 data-i18n="srv7Title">Ar-condicionado</h3><p data-i18n="srv7Text">Limpeza e manutenção avaliadas conforme o equipamento; reparos técnicos por profissional adequado.</p><span class="service-tag" data-i18n="tagTech">Conforme disponibilidade técnica</span>
-            </label>
-            <label class="service-card">
-              <input type="checkbox" name="services" form="quoteForm" value="vetores" data-label-pt="Inspeção preventiva do quintal" data-label-es="Inspección preventiva del patio" aria-label="Selecionar inspeção preventiva do quintal">
-              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3c-3 3.2-5 6.2-5 9.2a5 5 0 0 0 10 0c0-3-2-6-5-9.2Z" stroke="currentColor" stroke-width="1.7"/><path d="M4 20c2.1-1.6 4.8-2.4 8-2.4s5.9.8 8 2.4M4 7l2 1m14-1-2 1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
-              <h3 data-i18n="srv8Title">Quintal sem água parada</h3><p data-i18n="srv8Text">Inspeção visual de recipientes e orientação para reduzir locais que acumulam água. Sem aplicação química.</p><span class="service-tag" data-i18n="tagPreventive">Manutenção preventiva</span>
-            </label>
-            <label class="service-card">
-              <input type="checkbox" name="services" form="quoteForm" value="ausencia" data-label-pt="Visita à casa durante viagem" data-label-es="Visita al hogar durante viajes" aria-label="Selecionar visita à casa durante viagem">
-              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 11.5 12 4l9 7.5M5.5 10v10h13V10M9 20v-6h6v6" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M18 4h3v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
-              <h3 data-i18n="srv9Title">Casa cuidada durante viagens</h3><p data-i18n="srv9Text">Visitas agendadas para conferir pontos combinados, ventilar e registrar ocorrências visíveis.</p><span class="service-tag" data-i18n="tagScheduled">Visita programada</span>
-            </label>
-            <label class="service-card">
-              <input type="checkbox" name="services" form="quoteForm" value="reparos" data-label-pt="Pequenos reparos e instalações" data-label-es="Pequeñas reparaciones e instalaciones" aria-label="Selecionar pequenos reparos e instalações">
-              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m14 6 4 4m-9 9-5 1 1-5L16 4a2.8 2.8 0 0 1 4 4L9 19Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="m5 19 3-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
-              <h3 data-i18n="srv10Title">Pequenos reparos</h3><p data-i18n="srv10Text">Ajustes e instalações simples após vistoria. Serviços elétricos e de risco são avaliados à parte.</p><span class="service-tag" data-i18n="tagQuote">Avaliação e orçamento</span>
-            </label>
-          </div>
-        </fieldset>
-        <div class="selection-preview"><p><strong id="selectionLabel" data-i18n="selectionDefault">Seu plano começa pela sua lista.</strong> <span id="selectionHint" data-i18n="selectionHint">Selecione serviços e siga para o orçamento personalizado.</span></p><a href="#contato" data-i18n="selectionCta">Continuar para o orçamento →</a></div>
-      </div>
-    </section>
-
-    <section class="section" id="cuidados-locais">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="eyebrow" data-i18n="localEyebrow">Cuidados que fazem sentido na região</span>
-          <h2 data-i18n="localTitle">Prevenção adaptada à rotina da sua casa.</h2>
-          <p data-i18n="localIntro">Algumas tarefas são especialmente úteis no clima e no cotidiano local. São cuidados preventivos: quando surgir um problema técnico, avaliamos o escopo e combinamos um profissional apropriado.</p>
-        </div>
-        <div class="local-grid">
-          <article class="local-card"><span class="local-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0Z" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5l3 2m2-11 2-2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><h3 data-i18n="local1Title">Depois da chuva</h3><p data-i18n="local1Text">Checar visualmente calhas, escoamento e sinais aparentes de infiltração; limpeza acessível e pequenos serviços após avaliação. <a href="https://www.abc.com.py/nacionales/2025/05/27/lluvias-y-fuertes-rafagas-sorprendieron-a-san-bernardino/" target="_blank" rel="noopener noreferrer" data-i18n="localSource1">Contexto local ↗</a></p></article>
-          <article class="local-card"><span class="local-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3s6 6.4 6 11a6 6 0 1 1-12 0c0-4.6 6-11 6-11Z" stroke="currentColor" stroke-width="1.7"/><path d="M4 21h16m-13-3 2 3m8-3-2 3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><h3 data-i18n="local2Title">Quintal sem recipientes com água</h3><p data-i18n="local2Text">A inspeção visual pode ajudar a identificar recipientes que acumulam água e precisam de atenção. Uma ação da SENEPA em um bairro de San Bernardino relatou a remoção de criadouros em 2026. <a href="https://www.mspbs.gov.py/portal/34737/senepa-desactiva-mas-de-500-criaderos-del-aedes-aegypti-en-san-bernardino.html" target="_blank" rel="noopener noreferrer" data-i18n="localSource2">Leia a notícia ↗</a></p></article>
-          <article class="local-card"><span class="local-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v9H4z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8 18c0 1.5-1.5 1.5-1.5 3m6-3c0 1.5-1.5 1.5-1.5 3m6-3c0 1.5-1.5 1.5-1.5 3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><h3 data-i18n="local3Title">Calor, conforto e água</h3><p data-i18n="local3Text">Piscina, filtros, ventilação e ar-condicionado podem entrar no plano conforme o imóvel. Intervenções técnicas são avaliadas antes de confirmar atendimento.</p></article>
-        </div>
-        <p class="local-disclaimer" data-i18n="localDisclaimer">A notícia da SENEPA refere-se a uma ação localizada, não a uma medição de toda a cidade. A inspeção de recipientes não é serviço de controle de pragas, não inclui inseticidas e não garante prevenção de doenças.</p>
-      </div>
-    </section>
-
-    <section class="section" id="planos">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="eyebrow" data-i18n="plansEyebrow">Assinatura do seu jeito</span>
-          <h2 data-i18n="plansTitle">Comece simples. Combine mais serviços quando precisar.</h2>
-          <p data-i18n="plansIntro">Estes perfis são exemplos para ajudar você a escolher. O plano final é personalizado; não é necessário contratar todos os módulos.</p>
-        </div>
-        <div class="plan-grid">
-          <article class="plan-card"><span class="plan-kicker" data-i18n="plan1Kicker">Perfil 01 · Essencial</span><h3 data-i18n="plan1Title">Rotina em dia</h3><p data-i18n="plan1Text">Para quem quer resolver uma necessidade recorrente sem montar uma operação complexa.</p><ul><li data-i18n="plan1Feature1">Escolha 1 ou 2 serviços de rotina</li><li data-i18n="plan1Feature2">Defina uma frequência adequada</li><li data-i18n="plan1Feature3">Acrescente tarefas avulsas quando surgir necessidade</li></ul><button class="button button-outline preset-button" type="button" data-preset="essencial" data-i18n="planButton">Escolher este perfil</button></article>
-          <article class="plan-card is-featured"><span class="plan-kicker" data-i18n="plan2Kicker">Perfil 02 · Mais completo</span><h3 data-i18n="plan2Title">Casa bem cuidada</h3><p data-i18n="plan2Text">Para quem quer combinar serviços de rotina com check-ups preventivos.</p><ul><li data-i18n="plan2Feature1">Combine limpeza, jardim ou piscina</li><li data-i18n="plan2Feature2">Inclua uma visita de manutenção preventiva</li><li data-i18n="plan2Feature3">Receba registro do que foi feito</li></ul><button class="button button-primary preset-button" type="button" data-preset="cuidada" data-i18n="planButton">Escolher este perfil</button></article>
-          <article class="plan-card"><span class="plan-kicker" data-i18n="plan3Kicker">Perfil 03 · Sob medida</span><h3 data-i18n="plan3Title">Tudo coordenado</h3><p data-i18n="plan3Text">Para quem prefere um único ponto de contato e uma rotina mais ampla.</p><ul><li data-i18n="plan3Feature1">Selecione os módulos que deseja</li><li data-i18n="plan3Feature2">Combine visitas e serviços especializados</li><li data-i18n="plan3Feature3">Aprove extras antes de qualquer execução</li></ul><button class="button button-outline preset-button" type="button" data-preset="completa" data-i18n="planButton">Escolher este perfil</button></article>
-        </div>
-        <p class="plan-note" data-i18n="planNote">O valor depende do endereço, tamanho do imóvel, frequência e escopo. A proposta deve informar inclusões, exclusões e preço antes da contratação.</p>
-        <div class="one-off-banner"><div><strong data-i18n="oneOffTitle">Não quer assinar agora?</strong><p data-i18n="oneOffText">Você também pode contratar apenas um serviço, sem compromisso recorrente.</p></div><button class="button button-outline" id="oneOffCta" type="button" data-i18n="oneOffButton">Solicitar um serviço pontual</button></div>
-      </div>
-    </section>
-
-    <section class="section" id="como-funciona">
-      <div class="wrap">
-        <div class="section-head"><span class="eyebrow" data-i18n="howEyebrow">Um processo claro</span><h2 data-i18n="howTitle">Você escolhe. A gente combina cada detalhe.</h2><p data-i18n="howIntro">Sem pacote engessado: primeiro entendemos o imóvel, depois definimos o que será feito e com que frequência.</p></div>
-        <div class="flow-grid">
-          <article class="flow-card"><span class="flow-number">01</span><h3 data-i18n="step1Title">Conte o que precisa</h3><p data-i18n="step1Text">Selecione os serviços e descreva sua casa ou o que quer resolver.</p></article>
-          <article class="flow-card"><span class="flow-number">02</span><h3 data-i18n="step2Title">Agendamos uma avaliação</h3><p data-i18n="step2Text">Confirmamos a localização, o escopo e a frequência adequada.</p></article>
-          <article class="flow-card"><span class="flow-number">03</span><h3 data-i18n="step3Title">Você aprova a proposta</h3><p data-i18n="step3Text">Preço, inclusões, materiais e serviços extras ficam claros antes do início.</p></article>
-          <article class="flow-card"><span class="flow-number">04</span><h3 data-i18n="step4Title">Acompanhamos a execução</h3><p data-i18n="step4Text">Registramos as tarefas acordadas e informamos se surgir algo fora do combinado.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head"><span class="eyebrow" data-i18n="differenceEyebrow">Mais clareza em cada visita</span><h2 data-i18n="differenceTitle">A tranquilidade vem de saber o que está incluído.</h2></div>
-        <div class="promise-grid">
-          <article class="promise-main"><span class="eyebrow" data-i18n="promiseEyebrow">O que queremos entregar</span><h3 data-i18n="promiseTitle">Um serviço organizado, transparente e adaptado à casa.</h3><p data-i18n="promiseText">O combinado precisa ser simples de entender, fácil de acompanhar e respeitado pela equipe. Essa é a base da experiência A Rocha.</p>
-            <div class="promise-list"><div class="promise-item"><strong data-i18n="promise1Title">Escopo por escrito</strong><span data-i18n="promise1Text">O que a visita inclui e o que fica fora.</span></div><div class="promise-item"><strong data-i18n="promise2Title">Extras com aprovação</strong><span data-i18n="promise2Text">Nada de reparo adicional sem orçamento aceito.</span></div><div class="promise-item"><strong data-i18n="promise3Title">Registro visual</strong><span data-i18n="promise3Text">Fotos quando forem relevantes e autorizadas.</span></div><div class="promise-item"><strong data-i18n="promise4Title">Atendimento com cuidado</strong><span data-i18n="promise4Text">Acesso e informações da casa tratados com discrição.</span></div></div>
-          </article>
-          <aside class="promise-aside"><span class="eyebrow" data-i18n="scopeEyebrow">Segurança e transparência</span><h3 data-i18n="scopeTitle">Serviços especializados são avaliados à parte.</h3><p data-i18n="scopeText">Algumas tarefas exigem equipamento ou conhecimento técnico específico. Confirmamos escopo, disponibilidade e orçamento antes de aceitar.</p><ul><li data-i18n="scope1">Serviços em telhados e altura</li><li data-i18n="scope2">Instalações elétricas e refrigerantes</li><li data-i18n="scope3">Piscinas, bombas e sistemas técnicos</li><li data-i18n="scope4">Aplicação de produtos químicos ou controle de pragas</li></ul></aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="duvidas">
-      <div class="wrap">
-        <div class="section-head"><span class="eyebrow" data-i18n="faqEyebrow">Dúvidas frequentes</span><h2 data-i18n="faqTitle">Antes de escolher seu plano.</h2></div>
-        <div class="faq-list">
-          <details><summary data-i18n="faq1Q">Posso escolher só um serviço?</summary><p data-i18n="faq1A">Sim. A ideia é você escolher os serviços que fazem sentido para a sua casa e adicionar outros apenas se precisar.</p></details>
-          <details><summary data-i18n="faq2Q">O serviço é só para casas de temporada?</summary><p data-i18n="faq2A">Não. A proposta atende residências de uso contínuo e casas de temporada, com assinatura recorrente ou tarefas pontuais.</p></details>
-          <details><summary data-i18n="faq3Q">Como vocês calculam o orçamento?</summary><p data-i18n="faq3A">Consideramos endereço, tamanho e condições do imóvel, tarefas, frequência, materiais e necessidade de profissional especializado. O preço é confirmado antes de contratar.</p></details>
-          <details><summary data-i18n="faq4Q">Vocês fazem serviços técnicos ou de risco?</summary><p data-i18n="faq4A">Avaliamos cada pedido. Alguns trabalhos podem depender de disponibilidade e contratação de profissional com qualificação adequada. Não iniciamos extras sem sua aprovação.</p></details>
-          <details><summary data-i18n="faq5Q">A inspeção do quintal inclui fumigação contra mosquitos?</summary><p data-i18n="faq5A">Não. A inspeção visual pode identificar recipientes com água parada e orientar cuidados simples. Aplicação química ou controle de pragas é separado e depende de verificar os requisitos e a disponibilidade apropriados.</p></details>
-          <details><summary data-i18n="faq6Q">O formulário guarda meus dados?</summary><p data-i18n="faq6A">Não. Nesta versão, o formulário apenas prepara uma mensagem para você revisar. Seus dados não são enviados até você escolher abrir o WhatsApp.</p></details>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contato">
-      <div class="wrap">
-        <div class="contact-shell">
-          <div class="contact-info"><span class="eyebrow" data-i18n="contactEyebrow">Vamos conversar sobre sua casa</span><h2 data-i18n="contactTitle">Conte o que você quer deixar mais fácil.</h2><p data-i18n="contactIntro">Selecione os serviços desejados e diga onde fica o imóvel. A equipe poderá avaliar cobertura, agenda e escopo antes de preparar uma proposta.</p>
-            <div class="contact-list">
-              <div class="contact-item"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-4.3 7-11a7 7 0 1 0-14 0c0 6.7 7 11 7 11Z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="10" r="2.2" stroke="currentColor" stroke-width="1.7"/></svg><span><strong data-i18n="contactAreaTitle">Área de atendimento</strong><span data-i18n="contactAreaText">San Bernardino e localidades próximas; cobertura confirmada conforme endereço.</span></span></div>
-              <div class="contact-item"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="1.7"/><path d="m5 7 7 5 7-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong data-i18n="contactQuoteTitle">Proposta sem surpresa</strong><span data-i18n="contactQuoteText">Escopo, frequência e extras são informados antes da contratação.</span></span></div>
-              <div class="contact-item"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 20 6v5c0 5.2-3.4 8.4-8 10-4.6-1.6-8-4.8-8-10V6l8-3Z" stroke="currentColor" stroke-width="1.7"/><path d="m8.7 12 2.1 2.1 4.6-4.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong data-i18n="contactPrivacyTitle">Privacidade e acesso</strong><span data-i18n="contactPrivacyText">Fotos e acesso à propriedade devem ser combinados com você.</span></span></div>
+            <div>
+              <p class="font-display font-extrabold text-xl sm:text-2xl text-emerald-300" data-i18n="stat_2_v">100% Visual</p>
+              <p class="text-xs sm:text-sm text-slate-200 font-medium mt-0.5" data-i18n="stat_2">Relatório com fotos</p>
+            </div>
+            <div>
+              <p class="font-display font-extrabold text-xl sm:text-2xl text-white" data-i18n="stat_3_v">Factura Legal</p>
+              <p class="text-xs sm:text-sm text-slate-200 font-medium mt-0.5" data-i18n="stat_3">Empresa formalizada</p>
             </div>
           </div>
-          <div class="quote-form">
-            <form id="quoteForm">
-              <div class="form-grid">
-                <div class="field"><label for="clientName" data-i18n="labelName">Seu nome</label><input id="clientName" name="name" required autocomplete="name" placeholder="Como podemos chamar você?" data-placeholder-pt="Como podemos chamar você?" data-placeholder-es="¿Cómo podemos llamarle?"></div>
-                <div class="field"><label for="clientContact" data-i18n="labelContact">Seu WhatsApp ou telefone</label><input id="clientContact" name="contact" required autocomplete="tel" inputmode="tel" placeholder="Ex.: +595 ..." data-placeholder-pt="Ex.: +595 ..." data-placeholder-es="Ej.: +595 ..."></div>
-                <div class="field"><label for="clientCity" data-i18n="labelCity">Cidade / bairro</label><input id="clientCity" name="city" required autocomplete="address-level2" placeholder="San Bernardino ou arredores" data-placeholder-pt="San Bernardino ou arredores" data-placeholder-es="San Bernardino o alrededores"></div>
-                <div class="field"><label for="propertyType" data-i18n="labelType">Tipo de imóvel</label><select id="propertyType" name="propertyType"><option value="casa" data-i18n="typeHouse">Casa</option><option value="apartamento" data-i18n="typeApartment">Apartamento</option><option value="quinta" data-i18n="typeQuinta">Quinta / casa de campo</option><option value="comercial" data-i18n="typeCommercial">Pequeno imóvel comercial</option></select></div>
-                <div class="field"><label for="frequency" data-i18n="labelFrequency">Frequência desejada</label><select id="frequency" name="frequency"><option value="semana" data-i18n="freqWeekly">Semanal</option><option value="quinzena" data-i18n="freqFortnightly">Quinzenal</option><option value="mes" data-i18n="freqMonthly">Mensal</option><option value="avulso" data-i18n="freqOneOff">Serviço avulso</option><option value="avaliar" data-i18n="freqDiscuss">Quero avaliar</option></select></div>
-                <div class="field"><label for="size" data-i18n="labelSize">Tamanho aproximado</label><select id="size" name="size"><option value="pequeno" data-i18n="sizeSmall">Pequeno</option><option value="medio" data-i18n="sizeMedium">Médio</option><option value="grande" data-i18n="sizeLarge">Grande</option><option value="nao-sei" data-i18n="sizeUnknown">Não sei / prefiro explicar</option></select></div>
-                <div class="field full"><label for="notes" data-i18n="labelNotes">O que mais precisamos saber?</label><textarea id="notes" name="notes" placeholder="Conte um pouco sobre a casa e as tarefas que deseja combinar." data-placeholder-pt="Conte um pouco sobre a casa e as tarefas que deseja combinar." data-placeholder-es="Cuéntenos un poco sobre la casa y las tareas que desea combinar."></textarea></div>
+        </div>
+
+        <!-- Right Visual Showcase: Clean Framed Photo Card (No cluttered text over photo) -->
+        <div class="lg:col-span-6">
+          <div class="bg-white rounded-3xl p-3 sm:p-4 shadow-2xl border border-emerald-800/40">
+            <div class="relative rounded-2xl overflow-hidden h-64 sm:h-80 lg:h-[360px]">
+              <img
+                src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200&q=85"
+                onerror="this.src='https://placehold.co/1200x800/0C3B2E/FFFFFF?text=A+Rocha+Gestao+e+Servicos'"
+                alt="Casa de campo moderna com piscina cristalina e jardim cuidado"
+                class="w-full h-full object-cover object-center"
+              />
+            </div>
+
+            <!-- Clean White Status Bar Below Photo (100% Legible) -->
+            <div class="pt-4 pb-2 px-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center text-lg shrink-0">
+                  <i class="fa-solid fa-camera-retro"></i>
+                </div>
+                <div>
+                  <p class="font-display font-extrabold text-sm text-slate-900" data-i18n="card_report_title">Relatório Semanal de Quinta</p>
+                  <p class="text-xs font-medium text-slate-700" data-i18n="card_report_sub">Piscina tratada, grama cortada e casa ventilada</p>
+                </div>
               </div>
-              <div class="submit-row"><button class="button button-primary" type="submit"><span data-i18n="formSubmit">Preparar meu pedido de orçamento</span><span aria-hidden="true">→</span></button><p class="form-error" id="serviceError" role="status" data-i18n="serviceError">Selecione pelo menos um serviço acima ou explique sua necessidade nas observações.</p><p class="form-privacy" data-i18n="formPrivacy">A página não salva seus dados. Você revisa a mensagem antes de abrir o WhatsApp.</p></div>
-            </form>
+              <span class="inline-flex items-center gap-1.5 bg-emerald-700 text-white text-xs font-bold px-3.5 py-1.5 rounded-full self-start sm:self-center">
+                <i class="fa-solid fa-check"></i>
+                <span data-i18n="card_status">Pronta para o Fim de Semana</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== WHY CHOOSE US (VANTAGENS) ==================== -->
+  <section id="vantagens" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="inline-block bg-amber-100 text-amber-900 font-extrabold text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full" data-i18n="why_kicker">
+          Por que contratar a A Rocha?
+        </span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-950 mt-3" data-i18n="why_title">
+          Acabamos com a dor de cabeça de gerenciar vários prestadores
+        </h2>
+        <p class="text-slate-700 mt-3 text-base sm:text-lg leading-relaxed" data-i18n="why_desc">
+          Sabemos como é difícil encontrar mão de obra pontual e confiável no interior. Criamos uma gestão profissional com padrão empresarial para cuidar do seu patrimônio.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Advantage 1 -->
+        <div class="bg-slate-50 border border-slate-200 rounded-3xl p-7 card-hover">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-700 text-white flex items-center justify-center text-2xl mb-5 shadow-sm">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+          </div>
+          <h3 class="font-display font-extrabold text-lg text-slate-950 mb-2" data-i18n="adv_1_t">Pontualidade & Compromisso</h3>
+          <p class="text-slate-700 text-sm leading-relaxed" data-i18n="adv_1_d">
+            Cronograma rígido de visitas e prazos de entrega cumpridos à risca. Sem sumiços no meio da obra ou desculpas.
+          </p>
+        </div>
+
+        <!-- Advantage 2 -->
+        <div class="bg-slate-50 border border-slate-200 rounded-3xl p-7 card-hover">
+          <div class="w-14 h-14 rounded-2xl bg-amber-500 text-slate-950 flex items-center justify-center text-2xl mb-5 shadow-sm">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <h3 class="font-display font-extrabold text-lg text-slate-950 mb-2" data-i18n="adv_2_t">Relatórios Visuais no WhatsApp</h3>
+          <p class="text-slate-700 text-sm leading-relaxed" data-i18n="adv_2_d">
+            Mora em Assunção ou no Brasil? Receba fotos do antes e depois a cada visita semanal da nossa equipe na sua quinta.
+          </p>
+        </div>
+
+        <!-- Advantage 3 -->
+        <div class="bg-slate-50 border border-slate-200 rounded-3xl p-7 card-hover">
+          <div class="w-14 h-14 rounded-2xl bg-slate-900 text-amber-300 flex items-center justify-center text-2xl mb-5 shadow-sm">
+            <i class="fa-solid fa-toolbox"></i>
+          </div>
+          <h3 class="font-display font-extrabold text-lg text-slate-950 mb-2" data-i18n="adv_3_t">1 Único Contato Resolve Tudo</h3>
+          <p class="text-slate-700 text-sm leading-relaxed" data-i18n="adv_3_d">
+            Do corte de grama e limpeza da piscina até pintura, elétrica, ar-condicionado e limpeza pós-obra sob uma única gestão.
+          </p>
+        </div>
+
+        <!-- Advantage 4 -->
+        <div class="bg-slate-50 border border-slate-200 rounded-3xl p-7 card-hover">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-700 text-white flex items-center justify-center text-2xl mb-5 shadow-sm">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+          </div>
+          <h3 class="font-display font-extrabold text-lg text-slate-950 mb-2" data-i18n="adv_4_t">Garantia & Factura Legal</h3>
+          <p class="text-slate-700 text-sm leading-relaxed" data-i18n="adv_4_d">
+            Empresa formalizada no Paraguai, equipe uniformizada, supervisão técnica e emissão de Factura para sua segurança.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ORGANIC SERVICE PORTFOLIO ==================== -->
+  <section id="servicos" class="py-20 bg-slate-100 border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+        <div class="max-w-2xl">
+          <span class="inline-block bg-emerald-100 text-emerald-900 font-extrabold text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full" data-i18n="srv_kicker">
+            Soluções Completas para Casas e Quintas
+          </span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-950 mt-3" data-i18n="srv_title">
+            Tudo o que Sua Propriedade Precisa em Um Só Lugar
+          </h2>
+          <p class="text-slate-700 mt-3 text-base leading-relaxed" data-i18n="srv_desc">
+            Contamos com equipe própria polivalente e especialistas técnicos credenciados para cada tipo de demanda na sua residência ou chácara.
+          </p>
+        </div>
+        <a href="#orcamento" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-5 py-3 rounded-xl text-sm transition shrink-0">
+          <span data-i18n="srv_link">Solicitar serviço avulso</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service 1: Reformas -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 card-hover flex flex-col">
+          <div class="relative h-52 overflow-hidden bg-slate-200">
+            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80"
+                 onerror="this.src='https://placehold.co/800x500/06241B/FFFFFF?text=Reformas+e+Manutencao'"
+                 alt="Reformas simples e pintura" class="w-full h-full object-cover" />
+            <span class="absolute top-3.5 left-3.5 bg-slate-950 text-amber-300 text-xs font-extrabold px-3.5 py-1.5 rounded-full shadow" data-i18n="s1_badge">
+              Mais Procurado
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-display font-extrabold text-xl text-slate-950 mb-3" data-i18n="s1_t">Reformas Simples & Marido de Aluguel</h3>
+            <ul class="space-y-2.5 text-sm text-slate-800 flex-1">
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="s1_l1">Pintura residencial e comercial (interna e externa)</span></li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="s1_l2">Reparos de alvenaria, reboco, pisos e rejuntamento</span></li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="s1_l3">Instalação de drywall, forros e divisórias</span></li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="s1_l4">Elétrica e hidráulica básica (torneiras, chuveiros, tomadas, luminárias)</span></li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="s1_l5">Montagem de móveis, cortinas, suportes de TV e prateleiras</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 2: Limpeza -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 card-hover flex flex-col">
+          <div class="relative h-52 overflow-hidden bg-slate-200">
+            <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=800&q=80"
+                 onerror="this.src='https://placehold.co/800x500/06241B/FFFFFF?text=Limpeza+Pos-Obra'"
+                 alt="Limpeza pós-obra especializada" class="w-full h-full object-cover" />
+            <span class="absolute top-3.5 left-3.5 bg-emerald-800 text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full shadow" data-i18n="s2_badge">
+              Alta Precisão
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-display font-extrabold text-xl text-slate-950 mb-3" data-i18n="s2_t">Limpeza Especializada & Pós-Obra</h3>
+            <ul class="space-y-2.5 text-sm text-slate-800 flex-1">
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="s2_l1"><strong>Limpeza Pós-Obra Fina:</strong> Remoção técnica de tinta, cimento e poeira sem riscar porcelanatos</span></li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="s2_l2">Faxina pesada pré e pós-mudança</span></li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="s2_l3">Hidrolavagem de telhados coloniais, muros de pedra, decks e calçadas</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 3: Jardinagem -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 card-hover flex flex-col">
+          <div class="relative h-52 overflow-hidden bg-slate-200">
+            <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=800&q=80"
+                 onerror="this.src='https://placehold.co/800x500/06241B/FFFFFF?text=Jardinagem+e+Paisagismo'"
+                 alt="Jardinagem e corte de grama em jardim residencial" class="w-full h-full object-cover" />
+            <span class="absolute top-3.5 left-3.5 bg-emerald-800 text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full shadow" data-i18n="s3_badge">
+              Áreas Verdes
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-display font-extrabold text-xl text-slate-950 mb-3" data-i18n="s3_t">Jardinagem & Áreas Externas</h3>
+            <ul class="space-y-2.5 text-sm text-slate-800 flex-1">
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="s3_l1">Corte de grama, acabamento de bordas e poda de árvores/arbustos</span></li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="s3_l2">Roçada pesada e limpeza de terrenos e lotes fechados</span></li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="s3_l3">Adubação e controle preventivo de pragas (formigas <em>ysaú</em> e cupins)</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 4: Piscinas -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 card-hover flex flex-col">
+          <div class="relative h-52 overflow-hidden bg-slate-200">
+            <img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=800&q=80"
+                 onerror="this.src='https://placehold.co/800x500/06241B/FFFFFF?text=Manutencao+de+Piscinas'"
+                 alt="Manutenção de piscina cristalina" class="w-full h-full object-cover" />
+            <span class="absolute top-3.5 left-3.5 bg-sky-900 text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full shadow" data-i18n="s4_badge">
+              Água Cristalina
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-display font-extrabold text-xl text-slate-950 mb-3" data-i18n="s4_t">Manutenção Completa de Piscinas</h3>
+            <ul class="space-y-2.5 text-sm text-slate-800 flex-1">
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="s4_l1">Aspiração, peneiramento e escovação semanal de bordas</span></li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="s4_l2">Controle químico rigoroso (pH, cloro, alcalinidade e algicida)</span></li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="s4_l3">Manutenção preventiva de bomba, filtro e casa de máquinas</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 5: Zeladoria -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 card-hover flex flex-col">
+          <div class="relative h-52 overflow-hidden bg-slate-200">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+                 onerror="this.src='https://placehold.co/800x500/06241B/FFFFFF?text=Zeladoria+e+Casa+Pronta'"
+                 alt="Zeladoria e casa de campo pronta" class="w-full h-full object-cover" />
+            <span class="absolute top-3.5 left-3.5 bg-amber-400 text-slate-950 text-xs font-extrabold px-3.5 py-1.5 rounded-full shadow" data-i18n="s5_badge">
+              Exclusivo Quintas
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-display font-extrabold text-xl text-slate-950 mb-3" data-i18n="s5_t">Zeladoria & "Casa Pronta"</h3>
+            <ul class="space-y-2.5 text-sm text-slate-800 flex-1">
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="s5_l1">Vistoria semanal, abertura para ventilação e checagem pós-chuva</span></li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="s5_l2"><strong>Preparação Pré-Chegada:</strong> Ligamos geladeira, ar-condicionado e luzes antes da sua família chegar na sexta-feira</span></li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="s5_l3">Relatório semanal com fotos enviado no WhatsApp</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 6: Instalações Técnicas -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 card-hover flex flex-col">
+          <div class="relative h-52 overflow-hidden bg-slate-200">
+            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80"
+                 onerror="this.src='https://placehold.co/800x500/06241B/FFFFFF?text=Instalacoes+Tecnicas'"
+                 alt="Instalações técnicas e segurança" class="w-full h-full object-cover" />
+            <span class="absolute top-3.5 left-3.5 bg-slate-950 text-amber-300 text-xs font-extrabold px-3.5 py-1.5 rounded-full shadow" data-i18n="s6_badge">
+              Conforto & Técnica
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-display font-extrabold text-xl text-slate-950 mb-3" data-i18n="s6_t">Instalações Técnicas & Conforto</h3>
+            <ul class="space-y-2.5 text-sm text-slate-800 flex-1">
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="s6_l1">Instalação e higienização de Ar-Condicionado Split</span></li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="s6_l2">Manutenção de bombas de poço artesiano e irrigação</span></li>
+              <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="s6_l3">Câmeras Wi-Fi para monitoramento remoto, refletores solares e verniz em decks</span></li>
+            </ul>
           </div>
         </div>
       </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="wrap footer-row"><div><span class="footer-brand">A ROCHA · GESTÃO E SERVIÇOS RESIDENCIAIS</span><br><span data-i18n="footerLocation">San Bernardino, Cordillera, Paraguai</span></div><div class="footer-links"><a href="#servicos" data-i18n="navServices">Serviços</a><a href="#contato" data-i18n="navCta">Pedir orçamento</a><a href="#duvidas" data-i18n="navFaq">Dúvidas</a></div><div data-i18n="footerNote">Cobertura e disponibilidade confirmadas após consulta.</div><a class="button button-outline" href="relatorio.html" data-i18n="reportButton">Ver relatório</a></div>
-  </footer>
-  <a class="button button-primary bottom-cta" href="#contato"><span data-i18n="floatingCta">Pedir orçamento</span><span aria-hidden="true">↗</span></a>
-
-  <dialog id="requestDialog" aria-labelledby="dialogTitle">
-    <div class="dialog-inner">
-      <div class="dialog-head"><h2 id="dialogTitle" data-i18n="dialogTitle">Seu pedido está pronto para revisar</h2><button class="dialog-close" type="button" id="dialogClose" aria-label="Fechar">×</button></div>
-      <p class="dialog-copy" data-i18n="dialogCopy">Confira a mensagem. Ela só será enviada quando você abrir o WhatsApp.</p>
-      <div class="message-preview" id="messagePreview"></div>
-      <div class="dialog-actions"><button class="button button-outline" type="button" id="copyMessage" data-i18n="copyButton">Copiar mensagem</button><a class="button button-primary" id="openWhatsapp" href="#" target="_blank" rel="noopener noreferrer" hidden data-i18n="openWhatsapp">Abrir WhatsApp</a><button class="button button-primary" type="button" id="copyForDemo" hidden data-i18n="copyForDemo">Copiar pedido</button></div>
-      <p class="dialog-status" id="dialogStatus" aria-live="polite"></p>
-      <p class="form-privacy" id="demoNumberNote" data-i18n="demoNumberNote">O número comercial do WhatsApp ainda precisa ser configurado antes da publicação. Por enquanto, você pode copiar o pedido.</p>
     </div>
-  </dialog>
+  </section>
 
+  <!-- ==================== 5 PLANS & COMBOS PRICING ==================== -->
+  <section id="planos" class="py-24 bg-brand-dark text-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-block bg-emerald-900 border border-emerald-700 text-amber-300 font-extrabold text-xs uppercase tracking-widest px-4 py-1.5 rounded-full" data-i18n="plans_kicker">
+          Transparência & Previsibilidade
+        </span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white mt-3" data-i18n="plans_title">
+          5 Planos e Combos Sob Medida
+        </h2>
+        <p class="text-slate-100 mt-3 text-base sm:text-lg leading-relaxed" data-i18n="plans_desc">
+          Escolha entre nossas assinaturas mensais de manutenção contínua ou combos fechados para obras e revitalização. Valores de referência para terrenos até 1.000 m².
+        </p>
+
+        <!-- Currency Switcher (USD / PYG) -->
+        <div class="inline-flex items-center bg-emerald-950 border border-emerald-700 p-1.5 rounded-2xl mt-7 shadow-lg">
+          <button onclick="setCurrency('USD')" id="curr-usd" class="px-5 py-2.5 rounded-xl text-sm font-extrabold transition bg-amber-400 text-slate-950 shadow">
+            🇺🇸 Dólares (USD $)
+          </button>
+          <button onclick="setCurrency('PYG')" id="curr-pyg" class="px-5 py-2.5 rounded-xl text-sm font-extrabold transition text-white hover:text-amber-300">
+            🇵🇾 Guaraníes (Gs.)
+          </button>
+        </div>
+      </div>
+
+      <!-- Row 1: 3 Monthly Subscription Plans (High-Contrast White Cards on Dark Emerald Section) -->
+      <div class="mb-6">
+        <h3 class="text-sm uppercase tracking-widest text-amber-300 font-extrabold mb-6 flex items-center gap-2">
+          <i class="fa-solid fa-calendar-check"></i>
+          <span data-i18n="plans_sub_heading">Assinaturas Mensais Recorrentes (Paz de Espírito o Ano Todo)</span>
+        </h3>
+
+        <div class="grid lg:grid-cols-3 gap-7">
+          <!-- PLANO 1 -->
+          <div class="bg-white text-slate-900 border border-slate-200 rounded-3xl p-7 flex flex-col justify-between shadow-xl card-hover">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-slate-100 text-slate-900" data-i18n="pl1_tag">Plano 01 • Essencial</span>
+                <span class="text-xs font-bold text-emerald-800" data-i18n="pl1_scope">Piscina + Jardim</span>
+              </div>
+              <h4 class="font-display font-extrabold text-2xl text-slate-950" data-i18n="pl1_name">Piscina & Jardim</h4>
+              <p class="text-slate-700 text-sm mt-2" data-i18n="pl1_desc">Ideal para moradores fixos que desejam área externa sempre limpa e saudável.</p>
+
+              <div class="my-6 pb-6 border-b border-slate-200">
+                <div class="font-display font-extrabold text-3xl sm:text-4xl text-emerald-800 price-tag"
+                     data-usd="$110 – $140" data-pyg="Gs. 860mil – 1.09M">
+                  $110 – $140
+                </div>
+                <span class="text-xs font-semibold text-slate-700" data-i18n="per_month">/ mês (terrenos até 1.000 m²)</span>
+              </div>
+
+              <ul class="space-y-3 text-sm text-slate-800 mb-8">
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="pl1_f1"><strong>4 visitas mensais</strong> de piscina (1x por semana)</span></li>
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="pl1_f2">Controle químico completo + aspiração</span></li>
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="pl1_f3"><strong>2 cortes de grama</strong> e acabamento por mês</span></li>
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="pl1_f4">Poda leve de manutenção de arbustos</span></li>
+              </ul>
+            </div>
+
+            <button onclick="selectPlanAndScroll('plan1')" class="w-full py-3.5 px-5 rounded-2xl bg-slate-900 hover:bg-emerald-700 text-white font-extrabold text-sm transition flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span data-i18n="btn_choose_plan1">Contratar Plano 1</span>
+            </button>
+          </div>
+
+          <!-- PLANO 2 (HIGHLIGHTED) -->
+          <div class="bg-white text-slate-900 border-4 border-amber-400 rounded-3xl p-7 flex flex-col justify-between relative shadow-2xl card-hover">
+            <div class="absolute -top-4 right-6 bg-amber-400 text-slate-950 text-xs font-extrabold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-md" data-i18n="badge_popular">
+              ★ Mais Escolhido
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-amber-100 text-amber-950" data-i18n="pl2_tag">Plano 02 • Completo</span>
+                <span class="text-xs font-bold text-emerald-800" data-i18n="pl2_scope">Piscina + Jardim + Zeladoria</span>
+              </div>
+              <h4 class="font-display font-extrabold text-2xl text-slate-950" data-i18n="pl2_name">Quinta Protegida</h4>
+              <p class="text-slate-700 text-sm mt-2" data-i18n="pl2_desc">Perfeito para quem mora em Assunção ou no Brasil e usa a quinta nos fins de semana.</p>
+
+              <div class="my-6 pb-6 border-b border-slate-200">
+                <div class="font-display font-extrabold text-3xl sm:text-4xl text-emerald-800 price-tag"
+                     data-usd="$170 – $220" data-pyg="Gs. 1.32M – 1.71M">
+                  $170 – $220
+                </div>
+                <span class="text-xs font-semibold text-slate-700" data-i18n="per_month">/ mês (terrenos até 1.000 m²)</span>
+              </div>
+
+              <ul class="space-y-3 text-sm text-slate-800 mb-8">
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="pl2_f1"><strong>Tudo do Plano 1</strong> (Piscina semanal + Jardim quinzenal)</span></li>
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="pl2_f2"><strong>Zeladoria Semanal:</strong> Abertura da casa para ventilar</span></li>
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="pl2_f3">Checagem de telhado, calhas e bomba de poço</span></li>
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="pl2_f4">Controle preventivo contra formigas <em>ysaú</em></span></li>
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="pl2_f5"><strong>Relatório semanal com fotos</strong> no WhatsApp</span></li>
+              </ul>
+            </div>
+
+            <button onclick="selectPlanAndScroll('plan2')" class="w-full py-4 px-5 rounded-2xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-sm transition shadow-md flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span data-i18n="btn_choose_plan2">Contratar Plano 2</span>
+            </button>
+          </div>
+
+          <!-- PLANO 3 -->
+          <div class="bg-white text-slate-900 border border-slate-200 rounded-3xl p-7 flex flex-col justify-between shadow-xl card-hover">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-slate-900 text-amber-300" data-i18n="pl3_tag">Plano 03 • VIP</span>
+                <span class="text-xs font-bold text-emerald-800" data-i18n="pl3_scope">Gestão Total + Faxina</span>
+              </div>
+              <h4 class="font-display font-extrabold text-2xl text-slate-950" data-i18n="pl3_name">Fim de Semana VIP</h4>
+              <p class="text-slate-700 text-sm mt-2" data-i18n="pl3_desc">Padrão hotelaria: você chega na sexta-feira e a casa está limpa, fresca e pronta.</p>
+
+              <div class="my-6 pb-6 border-b border-slate-200">
+                <div class="font-display font-extrabold text-3xl sm:text-4xl text-emerald-800 price-tag"
+                     data-usd="$280 – $360" data-pyg="Gs. 2.18M – 2.80M">
+                  $280 – $360
+                </div>
+                <span class="text-xs font-semibold text-slate-700" data-i18n="per_month">/ mês (terrenos até 1.000 m²)</span>
+              </div>
+
+              <ul class="space-y-3 text-sm text-slate-800 mb-8">
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="pl3_f1"><strong>Tudo do Plano 2</strong> (Piscina + Jardim + Zeladoria)</span></li>
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="pl3_f2"><strong>Faxina leve pré-chegada</strong> toda quinta/sexta-feira</span></li>
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="pl3_f3">Climatização e geladeira ligadas horas antes</span></li>
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="pl3_f4"><strong>1 chamado mensal de Marido de Aluguel</strong> incluso (reparos elétricos/hidráulicos rápidos)</span></li>
+              </ul>
+            </div>
+
+            <button onclick="selectPlanAndScroll('plan3')" class="w-full py-3.5 px-5 rounded-2xl bg-slate-900 hover:bg-emerald-700 text-white font-extrabold text-sm transition flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span data-i18n="btn_choose_plan3">Contratar Plano 3</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2: 2 Closed Combos (High-Contrast White Cards) -->
+      <div class="mt-14">
+        <h3 class="text-sm uppercase tracking-widest text-amber-300 font-extrabold mb-6 flex items-center gap-2">
+          <i class="fa-solid fa-box-open"></i>
+          <span data-i18n="combos_heading">Combos Fechados de Alto Impacto (Pós-Obra & Revitalização)</span>
+        </h3>
+
+        <div class="grid md:grid-cols-2 gap-7">
+          <!-- COMBO 4 -->
+          <div class="bg-white text-slate-900 border border-slate-200 rounded-3xl p-7 sm:p-8 flex flex-col justify-between shadow-xl card-hover">
+            <div>
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                <span class="text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-100 text-emerald-950" data-i18n="cb4_tag">Combo 04 • Pós-Obra</span>
+                <span class="text-xs font-bold text-slate-700" data-i18n="cb4_scope">Limpeza Fina + Instalações</span>
+              </div>
+              <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-slate-200">
+                <div>
+                  <h4 class="font-display font-extrabold text-2xl text-slate-950" data-i18n="cb4_name">Pacote "Chave na Mão"</h4>
+                  <p class="text-slate-700 text-sm mt-1" data-i18n="cb4_desc">Ideal para casas recém-construídas ou pré-mudança (até 150 m²).</p>
+                </div>
+                <div class="sm:text-right">
+                  <div class="font-display font-extrabold text-3xl text-emerald-800 price-tag"
+                       data-usd="$420 – $580" data-pyg="Gs. 3.27M – 4.52M">
+                    $420 – $580
+                  </div>
+                  <span class="text-xs font-semibold text-slate-700" data-i18n="closed_package">pacote fechado</span>
+                </div>
+              </div>
+
+              <ul class="grid sm:grid-cols-2 gap-3 text-sm text-slate-800 my-6">
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="cb4_f1">Limpeza pós-obra fina completa</span></li>
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="cb4_f2">Hidrolavagem de calçadas externas</span></li>
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="cb4_f3">1 diária de instalador (cortinas, TV, espelhos, luminárias)</span></li>
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="cb4_f4">Instalação de até 2 câmeras Wi-Fi</span></li>
+              </ul>
+            </div>
+
+            <button onclick="selectPlanAndScroll('combo4')" class="w-full py-3.5 px-5 rounded-2xl bg-slate-900 hover:bg-amber-400 hover:text-slate-950 text-white font-extrabold text-sm transition flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span data-i18n="btn_choose_cb4">Solicitar Combo 4</span>
+            </button>
+          </div>
+
+          <!-- COMBO 5 -->
+          <div class="bg-white text-slate-900 border border-slate-200 rounded-3xl p-7 sm:p-8 flex flex-col justify-between shadow-xl card-hover">
+            <div>
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                <span class="text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-amber-100 text-amber-950" data-i18n="cb5_tag">Combo 05 • Transformação</span>
+                <span class="text-xs font-bold text-slate-700" data-i18n="cb5_scope">Pintura + Jardim + Piscina + Clima</span>
+              </div>
+              <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-slate-200">
+                <div>
+                  <h4 class="font-display font-extrabold text-2xl text-slate-950" data-i18n="cb5_name">Revitalização Total de Quinta</h4>
+                  <p class="text-slate-700 text-sm mt-1" data-i18n="cb5_desc">Perfeito para pré-temporada de verão ou valorização para venda.</p>
+                </div>
+                <div class="sm:text-right">
+                  <div class="font-display font-extrabold text-3xl text-emerald-800 price-tag"
+                       data-usd="$850 – $1.250" data-pyg="Gs. 6.63M – 9.75M">
+                    $850 – $1.250
+                  </div>
+                  <span class="text-xs font-semibold text-slate-700" data-i18n="closed_package">pacote fechado</span>
+                </div>
+              </div>
+
+              <ul class="grid sm:grid-cols-2 gap-3 text-sm text-slate-800 my-6">
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="cb5_f1">Hidrolavagem de telhado e muros</span></li>
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="cb5_f2">Pintura externa de fachada/muros (até 120 m²)</span></li>
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="cb5_f3">Poda pesada, adubação e tratamento de choque na piscina</span></li>
+                <li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-emerald-700 mt-1"></i><span data-i18n="cb5_f4">Higienização de até 3 aparelhos de Ar-Condicionado</span></li>
+              </ul>
+            </div>
+
+            <button onclick="selectPlanAndScroll('combo5')" class="w-full py-3.5 px-5 rounded-2xl bg-slate-900 hover:bg-amber-400 hover:text-slate-950 text-white font-extrabold text-sm transition flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span data-i18n="btn_choose_cb5">Solicitar Combo 5</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footnote -->
+      <p class="text-center text-xs sm:text-sm text-slate-200 mt-10 font-medium" data-i18n="plans_footnote">
+        * Para quintas com terrenos acima de 1.000 m² (2.500 m² a 5.000 m²), aplicamos um adicional proporcional de $30 a $60 USD/mês referente à roçada extra. Consulte condições com IVA incluído.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== HOW IT WORKS (3 STEPS) ==================== -->
+  <section id="como-funciona" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="inline-block bg-emerald-100 text-emerald-900 font-extrabold text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full" data-i18n="how_kicker">
+          Processo Simples & Profissional
+        </span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-950 mt-3" data-i18n="how_title">
+          Como funciona o nosso atendimento
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200">
+          <div class="w-12 h-12 rounded-2xl bg-brand-dark text-amber-300 font-display font-extrabold text-xl flex items-center justify-center mb-5 shadow-sm">
+            1
+          </div>
+          <h3 class="font-display font-extrabold text-xl text-slate-950 mb-2" data-i18n="step1_t">Vistoria & Orçamento Claro</h3>
+          <p class="text-slate-700 text-sm leading-relaxed" data-i18n="step1_d">
+            Você chama no WhatsApp, agendamos uma visita técnica em Hugua Hú ou região e enviamos uma proposta detalhada por escrito, sem surpresas.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200">
+          <div class="w-12 h-12 rounded-2xl bg-brand-dark text-amber-300 font-display font-extrabold text-xl flex items-center justify-center mb-5 shadow-sm">
+            2
+          </div>
+          <h3 class="font-display font-extrabold text-xl text-slate-950 mb-2" data-i18n="step2_t">Execução Supervisionada</h3>
+          <p class="text-slate-700 text-sm leading-relaxed" data-i18n="step2_d">
+            Nossa equipe uniformizada ou especialistas credenciados executam o serviço com equipamentos profissionais e supervisão rigorosa de qualidade.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200">
+          <div class="w-12 h-12 rounded-2xl bg-brand-dark text-amber-300 font-display font-extrabold text-xl flex items-center justify-center mb-5 shadow-sm">
+            3
+          </div>
+          <h3 class="font-display font-extrabold text-xl text-slate-950 mb-2" data-i18n="step3_t">Entrega & Relatório Fotográfico</h3>
+          <p class="text-slate-700 text-sm leading-relaxed" data-i18n="step3_d">
+            Entregamos tudo limpo, enviamos as fotos do resultado pelo WhatsApp e emitimos sua Factura Legal com garantia formal do serviço.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT & INSTANT QUOTE CALCULATOR ==================== -->
+  <section id="orcamento" class="py-20 bg-slate-100 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-[2rem] shadow-xl border border-slate-200 overflow-hidden grid lg:grid-cols-12">
+        <!-- Left Info Panel -->
+        <div class="lg:col-span-5 bg-brand-dark text-white p-8 sm:p-12 flex flex-col justify-between">
+          <div>
+            <span class="inline-block bg-emerald-900 text-amber-300 font-extrabold text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full" data-i18n="form_kicker">
+              Atendimento Bilíngue (PT / ES)
+            </span>
+            <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mt-3 leading-tight" data-i18n="form_title">
+              Solicite sua Visita ou Orçamento Agora
+            </h2>
+            <p class="text-slate-100 mt-4 text-sm sm:text-base leading-relaxed" data-i18n="form_desc">
+              Preencha os dados ao lado para gerar seu pedido formatado e iniciar o atendimento imediato pelo WhatsApp com a equipe da <strong class="text-amber-300">A Rocha Gestão e Serviços</strong>.
+            </p>
+
+            <div class="space-y-4 mt-8 pt-8 border-t border-emerald-800 text-sm">
+              <div class="flex items-start gap-3.5">
+                <div class="w-9 h-9 rounded-xl bg-emerald-900 flex items-center justify-center text-amber-300 shrink-0">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div>
+                  <p class="font-bold text-white" data-i18n="info1_t">Base & Área de Cobertura</p>
+                  <p class="text-slate-200" data-i18n="info1_d">Sede em Hugua Hú • Atendimento em Atyrá, Altos, Caacupé, Tobatí e San Bernardino.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3.5">
+                <div class="w-9 h-9 rounded-xl bg-emerald-900 flex items-center justify-center text-amber-300 shrink-0">
+                  <i class="fa-solid fa-clock"></i>
+                </div>
+                <div>
+                  <p class="font-bold text-white" data-i18n="info2_t">Horário de Atendimento</p>
+                  <p class="text-slate-200" data-i18n="info2_d">Segunda a Sábado: 07:30 às 18:00 (Plantão emergencial para assinantes).</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3.5">
+                <div class="w-9 h-9 rounded-xl bg-emerald-900 flex items-center justify-center text-amber-300 shrink-0">
+                  <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                  <p class="font-bold text-white" data-i18n="info3_t">Garantia & Formalidade</p>
+                  <p class="text-slate-200" data-i18n="info3_d">Emissão de Factura Legal (IVA) e contrato transparente para planos mensais.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-10 pt-6 border-t border-emerald-800 flex items-center gap-3 text-xs text-slate-200">
+            <i class="fa-solid fa-bolt text-amber-300 text-base"></i>
+            <span data-i18n="form_fast">Tempo médio de resposta no WhatsApp: <strong class="text-white">menos de 15 minutos</strong>.</span>
+          </div>
+        </div>
+
+        <!-- Right Interactive Form -->
+        <div class="lg:col-span-7 p-8 sm:p-12 bg-white">
+          <form id="quoteForm" onsubmit="handleQuoteSubmit(event)" class="space-y-5">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-800 mb-2" data-i18n="lbl_name">Seu Nome *</label>
+                <input type="text" id="clientName" required placeholder="Ex: Carlos Silva"
+                       class="w-full px-4 py-3.5 rounded-xl border border-slate-300 text-slate-900 placeholder:text-slate-500 focus:ring-2 focus:ring-emerald-700 focus:border-emerald-700 outline-none text-sm" />
+              </div>
+
+              <div>
+                <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-800 mb-2" data-i18n="lbl_city">Cidade / Região da Propriedade *</label>
+                <select id="clientCity" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 text-slate-900 focus:ring-2 focus:ring-emerald-700 focus:border-emerald-700 outline-none text-sm bg-white">
+                  <option value="Hugua Hú">Hugua Hú</option>
+                  <option value="Atyrá">Atyrá</option>
+                  <option value="Altos">Altos</option>
+                  <option value="San Bernardino">San Bernardino</option>
+                  <option value="Caacupé">Caacupé</option>
+                  <option value="Tobatí / Cordillera" data-i18n="opt_other_city">Tobatí / Outra em Cordillera</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-800 mb-2" data-i18n="lbl_plan">Plano ou Serviço Desejado *</label>
+                <select id="selectedPlan" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 text-slate-900 focus:ring-2 focus:ring-emerald-700 focus:border-emerald-700 outline-none text-sm bg-white">
+                  <option value="plan1" data-i18n="opt_p1">Plano 1: Piscina & Jardim ($110–$140/mês)</option>
+                  <option value="plan2" selected data-i18n="opt_p2">Plano 2: Quinta Protegida ($170–$220/mês) ★</option>
+                  <option value="plan3" data-i18n="opt_p3">Plano 3: Fim de Semana VIP ($280–$360/mês)</option>
+                  <option value="combo4" data-i18n="opt_c4">Combo 4: Pacote Chave na Mão ($420–$580)</option>
+                  <option value="combo5" data-i18n="opt_c5">Combo 5: Revitalização Total ($850–$1.250)</option>
+                  <option value="single" data-i18n="opt_single">Serviço Avulso (Reforma / Pintura / Manutenção)</option>
+                  <option value="postwork" data-i18n="opt_post">Limpeza Pós-Obra Avulsa</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-800 mb-2" data-i18n="lbl_size">Tamanho Aproximado do Terreno</label>
+                <select id="propertySize" class="w-full px-4 py-3.5 rounded-xl border border-slate-300 text-slate-900 focus:ring-2 focus:ring-emerald-700 focus:border-emerald-700 outline-none text-sm bg-white">
+                  <option value="size1" data-i18n="opt_s1">Até 1.000 m² (Padrão)</option>
+                  <option value="size2" data-i18n="opt_s2">1.000 m² a 2.500 m²</option>
+                  <option value="size3" data-i18n="opt_s3">2.500 m² a 5.000 m² (Quinta Média)</option>
+                  <option value="size4" data-i18n="opt_s4">Acima de 5.000 m² (Chácara Grande)</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-800 mb-2" data-i18n="lbl_notes">Detalhes do que você precisa (Opcional)</label>
+              <textarea id="clientNotes" rows="3" placeholder="Ex: Tenho uma quinta em Hugua Hú com piscina de 8x4m, preciso de manutenção semanal e pintura do muro..."
+                        class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 placeholder:text-slate-500 focus:ring-2 focus:ring-emerald-700 focus:border-emerald-700 outline-none text-sm"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-4 px-6 rounded-2xl bg-emerald-700 hover:bg-emerald-600 text-white font-extrabold text-base shadow-lg transition flex items-center justify-center gap-3">
+              <i class="fa-brands fa-whatsapp text-2xl"></i>
+              <span data-i18n="btn_submit">Enviar Pedido pelo WhatsApp Agora</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-brand-dark text-slate-200 py-12 border-t border-emerald-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-extrabold">
+          <i class="fa-solid fa-mountain-sun"></i>
+        </div>
+        <div>
+          <p class="text-white font-display font-extrabold text-sm" data-i18n="footer_brand">A ROCHA GESTÃO E SERVIÇOS</p>
+          <p class="text-xs text-slate-300">Hugua Hú • Cordillera • Paraguay</p>
+        </div>
+      </div>
+
+      <p class="text-xs text-slate-300 text-center md:text-right" data-i18n="footer_copy">
+        © 2026 A Rocha Gestão e Serviços. Todos os direitos reservados. • Factura Legal & Garantia Técnica.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
+  <a id="floatingWaBtn" href="https://wa.me/595981000000?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20da%20A%20Rocha%20Gest%C3%A3o%20e%20Servi%C3%A7os."
+     target="_blank" rel="noopener noreferrer"
+     aria-label="Falar no WhatsApp"
+     class="fixed bottom-6 right-6 z-50 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full p-4 shadow-2xl flex items-center justify-center transition transform hover:scale-110">
+    <i class="fa-brands fa-whatsapp text-3xl"></i>
+  </a>
+
+  <!-- ==================== CUSTOM CONFIRMATION MODAL (NO ALERT) ==================== -->
+  <div id="quoteModal" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-7 shadow-2xl space-y-5 border border-slate-200">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center text-xl">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <h3 class="font-display font-extrabold text-lg text-slate-950" data-i18n="modal_title">Resumo Pronto para Envio</h3>
+        </div>
+        <button onclick="closeQuoteModal()" class="text-slate-600 hover:text-slate-950 p-1">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+      </div>
+
+      <div id="modalSummaryText" class="bg-slate-100 rounded-2xl p-4 text-xs sm:text-sm text-slate-900 whitespace-pre-line font-mono border border-slate-300"></div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a id="modalWhatsappLink" href="#" target="_blank" rel="noopener noreferrer"
+           class="flex-1 py-3.5 px-4 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-extrabold text-sm text-center flex items-center justify-center gap-2">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span data-i18n="modal_btn_wa">Abrir WhatsApp</span>
+        </a>
+        <button onclick="closeQuoteModal()" class="py-3.5 px-4 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-900 font-bold text-sm" data-i18n="modal_btn_close">
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT INTERACTIVITY & FULL BILINGUAL ENGINE ==================== -->
   <script>
-    // Antes da publicação, inserir o número comercial internacional só com dígitos, por exemplo: 595XXXXXXXXX.
-    // Deixe vazio durante a apresentação para impedir que pedidos sejam enviados a um número incorreto.
-    const BUSINESS_WHATSAPP = '';
-    let currentLanguage = 'pt';
+    let currentLang = 'pt';
 
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    function closeMobileMenu() {
+      mobileMenu.classList.add('hidden');
+    }
+
+    // Currency Switcher (USD vs PYG)
+    function setCurrency(currency) {
+      const btnUsd = document.getElementById('curr-usd');
+      const btnPyg = document.getElementById('curr-pyg');
+      const priceTags = document.querySelectorAll('.price-tag');
+
+      if (currency === 'USD') {
+        btnUsd.className = 'px-5 py-2.5 rounded-xl text-sm font-extrabold transition bg-amber-400 text-slate-950 shadow';
+        btnPyg.className = 'px-5 py-2.5 rounded-xl text-sm font-extrabold transition text-white hover:text-amber-300';
+        priceTags.forEach(el => el.textContent = el.getAttribute('data-usd'));
+      } else {
+        btnPyg.className = 'px-5 py-2.5 rounded-xl text-sm font-extrabold transition bg-amber-400 text-slate-950 shadow';
+        btnUsd.className = 'px-5 py-2.5 rounded-xl text-sm font-extrabold transition text-white hover:text-amber-300';
+        priceTags.forEach(el => el.textContent = el.getAttribute('data-pyg'));
+      }
+    }
+
+    // Select Plan Button -> Pre-fill Form & Smooth Scroll
+    function selectPlanAndScroll(planValue) {
+      const selectEl = document.getElementById('selectedPlan');
+      selectEl.value = planValue;
+      document.getElementById('orcamento').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Handle Quote Form Submission
+    function handleQuoteSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('clientName').value.trim();
+      const city = document.getElementById('clientCity').value;
+      const planSelect = document.getElementById('selectedPlan');
+      const planText = planSelect.options[planSelect.selectedIndex].text;
+      const sizeSelect = document.getElementById('propertySize');
+      const sizeText = sizeSelect.options[sizeSelect.selectedIndex].text;
+      const notes = document.getElementById('clientNotes').value.trim();
+
+      // Replace with your real Paraguayan WhatsApp number (e.g., 595981123456)
+      const companyPhone = '595981000000';
+
+      let message = '';
+      if (currentLang === 'pt') {
+        message =
+          `Olá, A Rocha Gestão e Serviços! Gostaria de solicitar um orçamento:\n\n` +
+          `• *Nome:* ${name}\n` +
+          `• *Região:* ${city}\n` +
+          `• *Interesse:* ${planText}\n` +
+          `• *Terreno:* ${sizeText}\n` +
+          (notes ? `• *Detalhes:* ${notes}` : '');
+      } else {
+        message =
+          `¡Hola, A Rocha Gestión y Servicios! Quisiera solicitar un presupuesto:\n\n` +
+          `• *Nombre:* ${name}\n` +
+          `• *Zona:* ${city}\n` +
+          `• *Interés:* ${planText}\n` +
+          `• *Terreno:* ${sizeText}\n` +
+          (notes ? `• *Detalles:* ${notes}` : '');
+      }
+
+      const encodedMsg = encodeURIComponent(message);
+      const waUrl = `https://wa.me/${companyPhone}?text=${encodedMsg}`;
+
+      document.getElementById('modalSummaryText').textContent = message;
+      document.getElementById('modalWhatsappLink').href = waUrl;
+      document.getElementById('quoteModal').classList.remove('hidden');
+    }
+
+    function closeQuoteModal() {
+      document.getElementById('quoteModal').classList.add('hidden');
+    }
+
+    // Complete 100% Bilingual Dictionary (Português / Español)
     const translations = {
       pt: {
-        skip:'Pular para o conteúdo',brandSub:'Gestão e Serviços Residenciais',navServices:'Serviços',navPlans:'Planos',navHow:'Como funciona',navFaq:'Dúvidas',navCta:'Pedir orçamento',
-        heroKicker:'San Bernardino e localidades próximas',heroEyebrow:'Cuidado residencial flexível',heroTitle1:'Sua casa bem cuidada,',heroTitle2:'sem você ter que cuidar de tudo.',heroText:'Limpeza, jardim, manutenção preventiva e serviços complementares num só lugar. Você escolhe o que precisa. Nós organizamos a rotina e enviamos um resumo do que foi feito.',heroBtn1:'Montar meu plano',heroBtn2:'Ver como funciona',heroPoint1:'Serviços conforme sua necessidade',heroPoint2:'Frequência combinada',heroPoint3:'Orçamento antes de executar extras',stampTitle:'Cuidado com prestação de contas',stampSub:'Resumo visual após as visitas combinadas',visualCaption:'Uma casa em boas condições, todos os dias',visualNote:'Imagem ilustrativa',trust1Title:'Um só contato',trust1Text:'Para coordenar os serviços escolhidos',trust2Title:'Plano flexível',trust2Text:'Selecione módulos e frequência',trust3Title:'Mais previsibilidade',trust3Text:'Escopo e extras combinados antes',
-        servicesEyebrow:'Escolha o que faz sentido para você',servicesTitle:'Um serviço completo, montado do seu jeito.',servicesIntro:'Marque os cuidados que procura. Você pode combinar serviços recorrentes e chamados avulsos; a proposta final será definida conforme o tamanho do imóvel, a frequência e a região.',serviceToolbarStrong:'Selecione um ou mais módulos.',serviceToolbarText:'A seleção segue para o pedido de orçamento.',noneSelected:'Nenhum selecionado',serviceLegend:'Selecione os serviços desejados',
-        srv1Title:'Limpeza residencial',srv1Text:'Rotina semanal ou quinzenal, limpeza profunda e organização básica de áreas combinadas.',srv2Title:'Jardim e áreas externas',srv2Text:'Corte de grama, acabamento, limpeza de folhas e retirada de resíduos verdes.',srv3Title:'Check-up preventivo',srv3Text:'Verificação visual de torneiras, vazamentos aparentes, portas, janelas e pontos combinados.',srv4Title:'Calhas e chuva',srv4Text:'Inspeção visual, limpeza acessível de calhas e orientação sobre pontos de escoamento.',srv5Title:'Água e hidráulica básica',srv5Text:'Inspeção de vazamentos aparentes, boias, válvulas e conexões; serviços maiores sob avaliação.',srv6Title:'Piscina e equipamentos',srv6Text:'Limpeza, checagem de circulação e cuidado da água conforme avaliação e rotina acordada.',srv7Title:'Ar-condicionado',srv7Text:'Limpeza e manutenção avaliadas conforme o equipamento; reparos técnicos por profissional adequado.',srv8Title:'Quintal sem água parada',srv8Text:'Inspeção visual de recipientes e orientação para reduzir locais que acumulam água. Sem aplicação química.',srv9Title:'Casa cuidada durante viagens',srv9Text:'Visitas agendadas para conferir pontos combinados, ventilar e registrar ocorrências visíveis.',srv10Title:'Pequenos reparos',srv10Text:'Ajustes e instalações simples após vistoria. Serviços elétricos e de risco são avaliados à parte.',tagRecurring:'Recorrente ou avulso',tagScheduled:'Visita programada',tagPreventive:'Manutenção preventiva',tagQuote:'Avaliação e orçamento',tagTech:'Conforme disponibilidade técnica',selectionDefault:'Seu plano começa pela sua lista.',selectionHint:'Selecione serviços e siga para o orçamento personalizado.',selectionCta:'Continuar para o orçamento →',selectedOne:'1 serviço selecionado',selectedMany:'serviços selecionados',
-        localEyebrow:'Cuidados que fazem sentido na região',localTitle:'Prevenção adaptada à rotina da sua casa.',localIntro:'Algumas tarefas são especialmente úteis no clima e no cotidiano local. São cuidados preventivos: quando surgir um problema técnico, avaliamos o escopo e combinamos um profissional apropriado.',local1Title:'Depois da chuva',local1Text:'Checar visualmente calhas, escoamento e sinais aparentes de infiltração; limpeza acessível e pequenos serviços após avaliação.',localSource1:'Contexto local ↗',local2Title:'Quintal sem recipientes com água',local2Text:'A inspeção visual pode ajudar a identificar recipientes que acumulam água e precisam de atenção. Uma ação da SENEPA em um bairro de San Bernardino relatou a remoção de criadouros em 2026.',localSource2:'Leia a notícia ↗',local3Title:'Calor, conforto e água',local3Text:'Piscina, filtros, ventilação e ar-condicionado podem entrar no plano conforme o imóvel. Intervenções técnicas são avaliadas antes de confirmar atendimento.',localDisclaimer:'A notícia da SENEPA refere-se a uma ação localizada, não a uma medição de toda a cidade. A inspeção de recipientes não é serviço de controle de pragas, não inclui inseticidas e não garante prevenção de doenças.',
-        plansEyebrow:'Assinatura do seu jeito',plansTitle:'Comece simples. Combine mais serviços quando precisar.',plansIntro:'Estes perfis são exemplos para ajudar você a escolher. O plano final é personalizado; não é necessário contratar todos os módulos.',plan1Kicker:'Perfil 01 · Essencial',plan1Title:'Rotina em dia',plan1Text:'Para quem quer resolver uma necessidade recorrente sem montar uma operação complexa.',plan1Feature1:'Escolha 1 ou 2 serviços de rotina',plan1Feature2:'Defina uma frequência adequada',plan1Feature3:'Acrescente tarefas avulsas quando surgir necessidade',plan2Kicker:'Perfil 02 · Mais completo',plan2Title:'Casa bem cuidada',plan2Text:'Para quem quer combinar serviços de rotina com check-ups preventivos.',plan2Feature1:'Combine limpeza, jardim ou piscina',plan2Feature2:'Inclua uma visita de manutenção preventiva',plan2Feature3:'Receba registro do que foi feito',plan3Kicker:'Perfil 03 · Sob medida',plan3Title:'Tudo coordenado',plan3Text:'Para quem prefere um único ponto de contato e uma rotina mais ampla.',plan3Feature1:'Selecione os módulos que deseja',plan3Feature2:'Combine visitas e serviços especializados',plan3Feature3:'Aprove extras antes de qualquer execução',planButton:'Escolher este perfil',planNote:'O valor depende do endereço, tamanho do imóvel, frequência e escopo. A proposta deve informar inclusões, exclusões e preço antes da contratação.',
-        howEyebrow:'Um processo claro',howTitle:'Você escolhe. A gente combina cada detalhe.',howIntro:'Sem pacote engessado: primeiro entendemos o imóvel, depois definimos o que será feito e com que frequência.',step1Title:'Conte o que precisa',step1Text:'Selecione os serviços e descreva sua casa ou o que quer resolver.',step2Title:'Agendamos uma avaliação',step2Text:'Confirmamos a localização, o escopo e a frequência adequada.',step3Title:'Você aprova a proposta',step3Text:'Preço, inclusões, materiais e serviços extras ficam claros antes do início.',step4Title:'Acompanhamos a execução',step4Text:'Registramos as tarefas acordadas e informamos se surgir algo fora do combinado.',
-        differenceEyebrow:'Mais clareza em cada visita',differenceTitle:'A tranquilidade vem de saber o que está incluído.',promiseEyebrow:'O que queremos entregar',promiseTitle:'Um serviço organizado, transparente e adaptado à casa.',promiseText:'O combinado precisa ser simples de entender, fácil de acompanhar e respeitado pela equipe. Essa é a base da experiência A Rocha.',promise1Title:'Escopo por escrito',promise1Text:'O que a visita inclui e o que fica fora.',promise2Title:'Extras com aprovação',promise2Text:'Nada de reparo adicional sem orçamento aceito.',promise3Title:'Registro visual',promise3Text:'Fotos quando forem relevantes e autorizadas.',promise4Title:'Atendimento com cuidado',promise4Text:'Acesso e informações da casa tratados com discrição.',scopeEyebrow:'Segurança e transparência',scopeTitle:'Serviços especializados são avaliados à parte.',scopeText:'Algumas tarefas exigem equipamento ou conhecimento técnico específico. Confirmamos escopo, disponibilidade e orçamento antes de aceitar.',scope1:'Serviços em telhados e altura',scope2:'Instalações elétricas e refrigerantes',scope3:'Piscinas, bombas e sistemas técnicos',scope4:'Aplicação de produtos químicos ou controle de pragas',
-        faqEyebrow:'Dúvidas frequentes',faqTitle:'Antes de escolher seu plano.',faq1Q:'Posso escolher só um serviço?',faq1A:'Sim. A ideia é você escolher os serviços que fazem sentido para a sua casa e adicionar outros apenas se precisar.',faq2Q:'O serviço é só para casas de temporada?',faq2A:'Não. A proposta é atender casas usadas normalmente durante o ano todo. Também podemos combinar visitas quando o proprietário viajar.',faq3Q:'Como vocês calculam o orçamento?',faq3A:'Consideramos endereço, tamanho e condições do imóvel, tarefas, frequência, materiais e necessidade de profissional especializado. O preço é confirmado antes de contratar.',faq4Q:'Vocês fazem serviços técnicos ou de risco?',faq4A:'Avaliamos cada pedido. Alguns trabalhos podem depender de disponibilidade e contratação de profissional com qualificação adequada. Não iniciamos extras sem sua aprovação.',faq5Q:'A inspeção do quintal inclui fumigação contra mosquitos?',faq5A:'Não. A inspeção visual pode identificar recipientes com água parada e orientar cuidados simples. Aplicação química ou controle de pragas é separado e depende de verificar os requisitos e a disponibilidade apropriados.',faq6Q:'O formulário guarda meus dados?',faq6A:'Não. Nesta versão, o formulário apenas prepara uma mensagem para você revisar. Seus dados não são enviados até você escolher abrir o WhatsApp.',
-        contactEyebrow:'Vamos conversar sobre sua casa',contactTitle:'Conte o que você quer deixar mais fácil.',contactIntro:'Selecione os serviços desejados e diga onde fica o imóvel. A equipe poderá avaliar cobertura, agenda e escopo antes de preparar uma proposta.',contactAreaTitle:'Área de atendimento',contactAreaText:'San Bernardino e localidades próximas; cobertura confirmada conforme endereço.',contactQuoteTitle:'Proposta sem surpresa',contactQuoteText:'Escopo, frequência e extras são informados antes da contratação.',contactPrivacyTitle:'Privacidade e acesso',contactPrivacyText:'Fotos e acesso à propriedade devem ser combinados com você.',labelName:'Seu nome',labelContact:'Seu WhatsApp ou telefone',labelCity:'Cidade / bairro',labelType:'Tipo de imóvel',typeHouse:'Casa',typeApartment:'Apartamento',typeQuinta:'Quinta / casa de campo',typeCommercial:'Pequeno imóvel comercial',labelFrequency:'Frequência desejada',freqWeekly:'Semanal',freqFortnightly:'Quinzenal',freqMonthly:'Mensal',freqOneOff:'Serviço avulso',freqDiscuss:'Quero avaliar',labelSize:'Tamanho aproximado',sizeSmall:'Pequeno',sizeMedium:'Médio',sizeLarge:'Grande',sizeUnknown:'Não sei / prefiro explicar',labelNotes:'O que mais precisamos saber?',formSubmit:'Preparar meu pedido de orçamento',serviceError:'Selecione pelo menos um serviço acima ou explique sua necessidade nas observações.',formPrivacy:'A página não salva seus dados. Você revisa a mensagem antes de abrir o WhatsApp.',
-        footerLocation:'San Bernardino, Cordillera, Paraguai',footerNote:'Cobertura e disponibilidade confirmadas após consulta.',floatingCta:'Pedir orçamento',dialogTitle:'Seu pedido está pronto para revisar',dialogCopy:'Confira a mensagem. Ela só será enviada quando você abrir o WhatsApp.',copyButton:'Copiar mensagem',openWhatsapp:'Abrir WhatsApp',copyForDemo:'Copiar pedido',demoNumberNote:'O número comercial do WhatsApp ainda precisa ser configurado antes da publicação. Por enquanto, você pode copiar o pedido.',copySuccess:'Mensagem copiada.',copyFallback:'Selecione e copie a mensagem acima.',
-        msgIntro:'Olá! Gostaria de solicitar uma proposta de serviços residenciais da A Rocha.',msgName:'Nome',msgPhone:'Contato',msgCity:'Cidade/bairro',msgType:'Imóvel',msgFrequency:'Frequência',msgSize:'Tamanho',msgServices:'Serviços de interesse',msgNotes:'Observações'
+        brand_sub: 'Gestão e Serviços',
+        nav_why: 'Diferenciais',
+        nav_services: 'Nossos Serviços',
+        nav_plans: 'Planos & Preços',
+        nav_how: 'Como Funciona',
+        nav_contact: 'Orçamento',
+        nav_cta: 'Solicitar Orçamento',
+        hero_badge: 'Hugua Hú • Atyrá • Altos • Caacupé • San Bernardino',
+        hero_title: 'Sua Casa ou Quinta Sempre Impecável. <span class="text-amber-300">Tudo em Um Só Lugar.</span>',
+        hero_subtitle: 'Na <strong class="text-white font-bold">A Rocha Gestão e Serviços</strong>, cuidamos de reformas rápidas ("Marido de Aluguel"), limpeza pós-obra, jardinagem, manutenção de piscinas e zeladoria semanal com <strong class="text-amber-300 font-semibold">relatórios por foto no WhatsApp</strong> e <strong class="text-white font-semibold">Factura Legal</strong>.',
+        hero_btn_plans: 'Ver 5 Planos e Preços',
+        hero_btn_quote: 'Orçamento Rápido',
+        stat_1_v: 'Gestão Total',
+        stat_1: 'Manutenção e obras',
+        stat_2_v: '100% Visual',
+        stat_2: 'Relatório com fotos',
+        stat_3_v: 'Factura Legal',
+        stat_3: 'Empresa formalizada',
+        card_report_title: 'Relatório Semanal de Quinta',
+        card_report_sub: 'Piscina tratada, grama cortada e casa ventilada',
+        card_status: 'Pronta para o Fim de Semana',
+        why_kicker: 'Por que contratar a A Rocha?',
+        why_title: 'Acabamos com a dor de cabeça de gerenciar vários prestadores',
+        why_desc: 'Sabemos como é difícil encontrar mão de obra pontual e confiável no interior. Criamos uma gestão profissional com padrão empresarial para cuidar do seu patrimônio.',
+        adv_1_t: 'Pontualidade & Compromisso',
+        adv_1_d: 'Cronograma rígido de visitas e prazos de entrega cumpridos à risca. Sem sumiços no meio da obra ou desculpas.',
+        adv_2_t: 'Relatórios Visuais no WhatsApp',
+        adv_2_d: 'Mora em Assunção ou no Brasil? Receba fotos do antes e depois a cada visita semanal da nossa equipe na sua quinta.',
+        adv_3_t: '1 Único Contato Resolve Tudo',
+        adv_3_d: 'Do corte de grama e limpeza da piscina até pintura, elétrica, ar-condicionado e limpeza pós-obra sob uma única gestão.',
+        adv_4_t: 'Garantia & Factura Legal',
+        adv_4_d: 'Empresa formalizada no Paraguai, equipe uniformizada, supervisão técnica e emissão de Factura para sua segurança.',
+        srv_kicker: 'Soluções Completas para Casas e Quintas',
+        srv_title: 'Tudo o que Sua Propriedade Precisa em Um Só Lugar',
+        srv_desc: 'Contamos com equipe própria polivalente e especialistas técnicos credenciados para cada tipo de demanda na sua residência ou chácara.',
+        srv_link: 'Solicitar serviço avulso',
+        s1_badge: 'Mais Procurado',
+        s1_t: 'Reformas Simples & Marido de Aluguel',
+        s1_l1: 'Pintura residencial e comercial (interna e externa)',
+        s1_l2: 'Reparos de alvenaria, reboco, pisos e rejuntamento',
+        s1_l3: 'Instalação de drywall, forros e divisórias',
+        s1_l4: 'Elétrica e hidráulica básica (torneiras, chuveiros, tomadas, luminárias)',
+        s1_l5: 'Montagem de móveis, cortinas, suportes de TV e prateleiras',
+        s2_badge: 'Alta Precisão',
+        s2_t: 'Limpeza Especializada & Pós-Obra',
+        s2_l1: '<strong>Limpeza Pós-Obra Fina:</strong> Remoção técnica de tinta, cimento e poeira sem riscar porcelanatos',
+        s2_l2: 'Faxina pesada pré e pós-mudança',
+        s2_l3: 'Hidrolavagem de telhados coloniais, muros de pedra, decks e calçadas',
+        s3_badge: 'Áreas Verdes',
+        s3_t: 'Jardinagem & Áreas Externas',
+        s3_l1: 'Corte de grama, acabamento de bordas e poda de árvores/arbustos',
+        s3_l2: 'Roçada pesada e limpeza de terrenos e lotes fechados',
+        s3_l3: 'Adubação e controle preventivo de pragas (formigas <em>ysaú</em> e cupins)',
+        s4_badge: 'Água Cristalina',
+        s4_t: 'Manutenção Completa de Piscinas',
+        s4_l1: 'Aspiração, peneiramento e escovação semanal de bordas',
+        s4_l2: 'Controle químico rigoroso (pH, cloro, alcalinidade e algicida)',
+        s4_l3: 'Manutenção preventiva de bomba, filtro e casa de máquinas',
+        s5_badge: 'Exclusivo Quintas',
+        s5_t: 'Zeladoria & "Casa Pronta"',
+        s5_l1: 'Vistoria semanal, abertura para ventilação e checagem pós-chuva',
+        s5_l2: '<strong>Preparação Pré-Chegada:</strong> Ligamos geladeira, ar-condicionado e luzes antes da sua família chegar na sexta-feira',
+        s5_l3: 'Relatório semanal com fotos enviado no WhatsApp',
+        s6_badge: 'Conforto & Técnica',
+        s6_t: 'Instalações Técnicas & Conforto',
+        s6_l1: 'Instalação e higienização de Ar-Condicionado Split',
+        s6_l2: 'Manutenção de bombas de poço artesiano e irrigação',
+        s6_l3: 'Câmeras Wi-Fi para monitoramento remoto, refletores solares e verniz em decks',
+        plans_kicker: 'Transparência & Previsibilidade',
+        plans_title: '5 Planos e Combos Sob Medida',
+        plans_desc: 'Escolha entre nossas assinaturas mensais de manutenção contínua ou combos fechados para obras e revitalização. Valores de referência para terrenos até 1.000 m².',
+        plans_sub_heading: 'Assinaturas Mensais Recorrentes (Paz de Espírito o Ano Todo)',
+        per_month: '/ mês (terrenos até 1.000 m²)',
+        closed_package: 'pacote fechado',
+        badge_popular: '★ Mais Escolhido',
+        pl1_tag: 'Plano 01 • Essencial',
+        pl1_scope: 'Piscina + Jardim',
+        pl1_name: 'Piscina & Jardim',
+        pl1_desc: 'Ideal para moradores fixos que desejam área externa sempre limpa e saudável.',
+        pl1_f1: '<strong>4 visitas mensais</strong> de piscina (1x por semana)',
+        pl1_f2: 'Controle químico completo + aspiração',
+        pl1_f3: '<strong>2 cortes de grama</strong> e acabamento por mês',
+        pl1_f4: 'Poda leve de manutenção de arbustos',
+        btn_choose_plan1: 'Contratar Plano 1',
+        pl2_tag: 'Plano 02 • Completo',
+        pl2_scope: 'Piscina + Jardim + Zeladoria',
+        pl2_name: 'Quinta Protegida',
+        pl2_desc: 'Perfeito para quem mora em Assunção ou no Brasil e usa a quinta nos fins de semana.',
+        pl2_f1: '<strong>Tudo do Plano 1</strong> (Piscina semanal + Jardim quinzenal)',
+        pl2_f2: '<strong>Zeladoria Semanal:</strong> Abertura da casa para ventilar',
+        pl2_f3: 'Checagem de telhado, calhas e bomba de poço',
+        pl2_f4: 'Controle preventivo contra formigas <em>ysaú</em>',
+        pl2_f5: '<strong>Relatório semanal com fotos</strong> no WhatsApp',
+        btn_choose_plan2: 'Contratar Plano 2',
+        pl3_tag: 'Plano 03 • VIP',
+        pl3_scope: 'Gestão Total + Faxina',
+        pl3_name: 'Fim de Semana VIP',
+        pl3_desc: 'Padrão hotelaria: você chega na sexta-feira e a casa está limpa, fresca e pronta.',
+        pl3_f1: '<strong>Tudo do Plano 2</strong> (Piscina + Jardim + Zeladoria)',
+        pl3_f2: '<strong>Faxina leve pré-chegada</strong> toda quinta/sexta-feira',
+        pl3_f3: 'Climatização e geladeira ligadas horas antes',
+        pl3_f4: '<strong>1 chamado mensal de Marido de Aluguel</strong> incluso (reparos elétricos/hidráulicos rápidos)',
+        btn_choose_plan3: 'Contratar Plano 3',
+        combos_heading: 'Combos Fechados de Alto Impacto (Pós-Obra & Revitalização)',
+        cb4_tag: 'Combo 04 • Pós-Obra',
+        cb4_scope: 'Limpeza Fina + Instalações',
+        cb4_name: 'Pacote "Chave na Mão"',
+        cb4_desc: 'Ideal para casas recém-construídas ou pré-mudança (até 150 m²).',
+        cb4_f1: 'Limpeza pós-obra fina completa',
+        cb4_f2: 'Hidrolavagem de calçadas externas',
+        cb4_f3: '1 diária de instalador (cortinas, TV, espelhos, luminárias)',
+        cb4_f4: 'Instalação de até 2 câmeras Wi-Fi',
+        btn_choose_cb4: 'Solicitar Combo 4',
+        cb5_tag: 'Combo 05 • Transformação',
+        cb5_scope: 'Pintura + Jardim + Piscina + Clima',
+        cb5_name: 'Revitalização Total de Quinta',
+        cb5_desc: 'Perfeito para pré-temporada de verão ou valorização para venda.',
+        cb5_f1: 'Hidrolavagem de telhado e muros',
+        cb5_f2: 'Pintura externa de fachada/muros (até 120 m²)',
+        cb5_f3: 'Poda pesada, adubação e tratamento de choque na piscina',
+        cb5_f4: 'Higienização de até 3 aparelhos de Ar-Condicionado',
+        btn_choose_cb5: 'Solicitar Combo 5',
+        plans_footnote: '* Para quintas com terrenos acima de 1.000 m² (2.500 m² a 5.000 m²), aplicamos um adicional proporcional de $30 a $60 USD/mês referente à roçada extra. Consulte condições com IVA incluído.',
+        how_kicker: 'Processo Simples & Profissional',
+        how_title: 'Como funciona o nosso atendimento',
+        step1_t: 'Vistoria & Orçamento Claro',
+        step1_d: 'Você chama no WhatsApp, agendamos uma visita técnica em Hugua Hú ou região e enviamos uma proposta detalhada por escrito, sem surpresas.',
+        step2_t: 'Execução Supervisionada',
+        step2_d: 'Nossa equipe uniformizada ou especialistas credenciados executam o serviço com equipamentos profissionais e supervisão rigorosa de qualidade.',
+        step3_t: 'Entrega & Relatório Fotográfico',
+        step3_d: 'Entregamos tudo limpo, enviamos as fotos do resultado pelo WhatsApp e emitimos sua Factura Legal com garantia formal do serviço.',
+        form_kicker: 'Atendimento Bilíngue (PT / ES)',
+        form_title: 'Solicite sua Visita ou Orçamento Agora',
+        form_desc: 'Preencha os dados ao lado para gerar seu pedido formatado e iniciar o atendimento imediato pelo WhatsApp com a equipe da <strong class="text-amber-300">A Rocha Gestão e Serviços</strong>.',
+        info1_t: 'Base & Área de Cobertura',
+        info1_d: 'Sede em Hugua Hú • Atendimento em Atyrá, Altos, Caacupé, Tobatí e San Bernardino.',
+        info2_t: 'Horário de Atendimento',
+        info2_d: 'Segunda a Sábado: 07:30 às 18:00 (Plantão emergencial para assinantes).',
+        info3_t: 'Garantia & Formalidade',
+        info3_d: 'Emissão de Factura Legal (IVA) e contrato transparente para planos mensais.',
+        form_fast: 'Tempo médio de resposta no WhatsApp: <strong class="text-white">menos de 15 minutos</strong>.',
+        lbl_name: 'Seu Nome *',
+        lbl_city: 'Cidade / Região da Propriedade *',
+        opt_other_city: 'Tobatí / Outra em Cordillera',
+        lbl_plan: 'Plano ou Serviço Desejado *',
+        opt_p1: 'Plano 1: Piscina & Jardim ($110–$140/mês)',
+        opt_p2: 'Plano 2: Quinta Protegida ($170–$220/mês) ★',
+        opt_p3: 'Plano 3: Fim de Semana VIP ($280–$360/mês)',
+        opt_c4: 'Combo 4: Pacote Chave na Mão ($420–$580)',
+        opt_c5: 'Combo 5: Revitalização Total ($850–$1.250)',
+        opt_single: 'Serviço Avulso (Reforma / Pintura / Manutenção)',
+        opt_post: 'Limpeza Pós-Obra Avulsa',
+        lbl_size: 'Tamanho Aproximado do Terreno',
+        opt_s1: 'Até 1.000 m² (Padrão)',
+        opt_s2: '1.000 m² a 2.500 m²',
+        opt_s3: '2.500 m² a 5.000 m² (Quinta Média)',
+        opt_s4: 'Acima de 5.000 m² (Chácara Grande)',
+        lbl_notes: 'Detalhes do que você precisa (Opcional)',
+        btn_submit: 'Enviar Pedido pelo WhatsApp Agora',
+        footer_brand: 'A ROCHA GESTÃO E SERVIÇOS',
+        footer_copy: '© 2026 A Rocha Gestão e Serviços. Todos os direitos reservados. • Factura Legal & Garantia Técnica.',
+        modal_title: 'Resumo Pronto para Envio',
+        modal_btn_wa: 'Abrir WhatsApp',
+        modal_btn_close: 'Fechar'
       },
       es: {
-        skip:'Saltar al contenido',brandSub:'Gestión y Servicios Residenciales',navServices:'Servicios',navPlans:'Planes',navHow:'Cómo funciona',navFaq:'Preguntas',navCta:'Pedir presupuesto',
-        heroKicker:'San Bernardino y localidades cercanas',heroEyebrow:'Cuidado residencial flexible',heroTitle1:'Su casa bien cuidada,',heroTitle2:'sin tener que ocuparse de todo.',heroText:'Limpieza, jardín, mantenimiento preventivo y servicios complementarios en un solo lugar. Usted elige lo que necesita. Organizamos la rutina y enviamos un resumen de lo realizado.',heroBtn1:'Armar mi plan',heroBtn2:'Ver cómo funciona',heroPoint1:'Servicios según su necesidad',heroPoint2:'Frecuencia acordada',heroPoint3:'Presupuesto antes de los extras',stampTitle:'Cuidado con seguimiento',stampSub:'Resumen visual después de las visitas acordadas',visualCaption:'Una casa en buenas condiciones, todos los días',visualNote:'Imagen ilustrativa',trust1Title:'Un solo contacto',trust1Text:'Para coordinar los servicios elegidos',trust2Title:'Plan flexible',trust2Text:'Elija módulos y frecuencia',trust3Title:'Más previsibilidad',trust3Text:'Alcance y extras acordados de antemano',
-        servicesEyebrow:'Elija lo que le resulta útil',servicesTitle:'Un servicio completo, armado a su manera.',servicesIntro:'Marque los cuidados que busca. Puede combinar servicios recurrentes y puntuales; la propuesta final dependerá del tamaño del inmueble, la frecuencia y la zona.',serviceToolbarStrong:'Seleccione uno o más módulos.',serviceToolbarText:'Su selección se incluirá en el pedido de presupuesto.',noneSelected:'Ninguno seleccionado',serviceLegend:'Seleccione los servicios deseados',
-        srv1Title:'Limpieza residencial',srv1Text:'Rutina semanal o quincenal, limpieza profunda y organización básica de las áreas acordadas.',srv2Title:'Jardín y áreas exteriores',srv2Text:'Corte de césped, bordes, limpieza de hojas y retiro de residuos verdes.',srv3Title:'Revisión preventiva del hogar',srv3Text:'Revisión visual de grifos, fugas visibles, puertas, ventanas y puntos acordados.',srv4Title:'Canaletas y lluvia',srv4Text:'Inspección visual, limpieza accesible de canaletas y orientación sobre desagües.',srv5Title:'Agua y mantenimiento hidráulico básico',srv5Text:'Revisión de fugas visibles, flotadores, válvulas y conexiones; tareas mayores bajo evaluación.',srv6Title:'Piscina y equipos',srv6Text:'Limpieza, revisión de circulación y cuidado del agua según evaluación y rutina acordada.',srv7Title:'Aire acondicionado',srv7Text:'Limpieza y mantenimiento evaluados según el equipo; reparaciones técnicas por profesional adecuado.',srv8Title:'Patio sin agua acumulada',srv8Text:'Inspección visual de recipientes y orientación para reducir lugares donde se acumula agua. Sin aplicación química.',srv9Title:'Casa cuidada durante sus viajes',srv9Text:'Visitas programadas para revisar puntos acordados, ventilar y registrar situaciones visibles.',srv10Title:'Pequeñas reparaciones',srv10Text:'Ajustes e instalaciones sencillas después de una inspección. Trabajos eléctricos o de riesgo se evalúan aparte.',tagRecurring:'Recurrente o puntual',tagScheduled:'Visita programada',tagPreventive:'Mantenimiento preventivo',tagQuote:'Evaluación y presupuesto',tagTech:'Según disponibilidad técnica',selectionDefault:'Su plan empieza con su lista.',selectionHint:'Elija servicios y continúe al presupuesto personalizado.',selectionCta:'Continuar al presupuesto →',selectedOne:'1 servicio seleccionado',selectedMany:'servicios seleccionados',
-        localEyebrow:'Cuidados útiles en la zona',localTitle:'Prevención adaptada a la rutina de su casa.',localIntro:'Algunas tareas son especialmente útiles por el clima y la vida cotidiana de la zona. Son cuidados preventivos: ante un problema técnico, evaluamos el alcance y coordinamos un profesional adecuado.',local1Title:'Después de la lluvia',local1Text:'Revisar visualmente canaletas, desagües y señales visibles de filtración; limpieza accesible y tareas menores después de una evaluación.',localSource1:'Contexto local ↗',local2Title:'Patio sin recipientes con agua',local2Text:'La inspección visual puede ayudar a identificar recipientes que acumulan agua y necesitan atención. Una acción de SENEPA en un barrio de San Bernardino informó la eliminación de criaderos en 2026.',localSource2:'Leer la noticia ↗',local3Title:'Calor, confort y agua',local3Text:'Piscina, filtros, ventilación y aire acondicionado pueden incorporarse al plan según el inmueble. Las intervenciones técnicas se evalúan antes de confirmar el servicio.',localDisclaimer:'La noticia de SENEPA corresponde a una intervención localizada, no a una medición de toda la ciudad. La inspección de recipientes no es control de plagas, no incluye insecticidas y no garantiza la prevención de enfermedades.',
-        plansEyebrow:'Suscripción a su manera',plansTitle:'Empiece simple. Combine más servicios cuando los necesite.',plansIntro:'Estos perfiles son ejemplos para ayudarle a elegir. El plan final es personalizado; no necesita contratar todos los módulos.',plan1Kicker:'Perfil 01 · Esencial',plan1Title:'Rutina al día',plan1Text:'Para resolver una necesidad recurrente sin armar una operación compleja.',plan1Feature1:'Elija 1 o 2 servicios de rutina',plan1Feature2:'Defina una frecuencia adecuada',plan1Feature3:'Agregue tareas puntuales cuando las necesite',plan2Kicker:'Perfil 02 · Más completo',plan2Title:'Casa bien cuidada',plan2Text:'Para combinar servicios de rutina con revisiones preventivas.',plan2Feature1:'Combine limpieza, jardín o piscina',plan2Feature2:'Incluya una visita de mantenimiento preventivo',plan2Feature3:'Reciba un registro de lo realizado',plan3Kicker:'Perfil 03 · A medida',plan3Title:'Todo coordinado',plan3Text:'Para quienes prefieren un único punto de contacto y una rutina más amplia.',plan3Feature1:'Seleccione los módulos que desea',plan3Feature2:'Coordine visitas y servicios especializados',plan3Feature3:'Apruebe extras antes de comenzar',planButton:'Elegir este perfil',planNote:'El precio depende de la dirección, el tamaño del inmueble, la frecuencia y el alcance. La propuesta debe indicar inclusiones, exclusiones y precio antes de contratar.',
-        howEyebrow:'Un proceso claro',howTitle:'Usted elige. Acordamos cada detalle.',howIntro:'Sin paquetes rígidos: primero conocemos el inmueble y después definimos qué se hará y con qué frecuencia.',step1Title:'Cuéntenos qué necesita',step1Text:'Seleccione servicios y describa su casa o lo que desea resolver.',step2Title:'Coordinamos una evaluación',step2Text:'Confirmamos ubicación, alcance y frecuencia adecuada.',step3Title:'Usted aprueba la propuesta',step3Text:'Precio, inclusiones, materiales y extras quedan claros antes de comenzar.',step4Title:'Acompañamos el trabajo',step4Text:'Registramos las tareas acordadas y avisamos si surge algo fuera del alcance.',
-        differenceEyebrow:'Más claridad en cada visita',differenceTitle:'La tranquilidad empieza al saber qué incluye el servicio.',promiseEyebrow:'Lo que queremos ofrecer',promiseTitle:'Un servicio organizado, transparente y adaptado a su casa.',promiseText:'Lo acordado debe ser fácil de entender, seguir y respetar. Esa es la base de la experiencia A Rocha.',promise1Title:'Alcance por escrito',promise1Text:'Qué incluye la visita y qué queda fuera.',promise2Title:'Extras aprobados',promise2Text:'No se hacen reparaciones adicionales sin aceptar el presupuesto.',promise3Title:'Registro visual',promise3Text:'Fotos cuando sean relevantes y estén autorizadas.',promise4Title:'Atención cuidadosa',promise4Text:'Acceso e información del hogar tratados con discreción.',scopeEyebrow:'Seguridad y transparencia',scopeTitle:'Los servicios especializados se evalúan por separado.',scopeText:'Algunas tareas requieren equipos o conocimientos técnicos específicos. Confirmamos alcance, disponibilidad y presupuesto antes de aceptar.',scope1:'Trabajos en techos y altura',scope2:'Instalaciones eléctricas y refrigerantes',scope3:'Piscinas, bombas y sistemas técnicos',scope4:'Aplicación de químicos o control de plagas',
-        faqEyebrow:'Preguntas frecuentes',faqTitle:'Antes de elegir su plan.',faq1Q:'¿Puedo elegir un solo servicio?',faq1A:'Sí. Elija los servicios que tienen sentido para su casa y agregue otros solo si los necesita.',faq2Q:'¿El servicio es solo para casas de temporada?',faq2A:'No. La propuesta es atender casas de uso cotidiano durante todo el año. También podemos acordar visitas cuando el propietario viaje.',faq3Q:'¿Cómo calculan el presupuesto?',faq3A:'Consideramos dirección, tamaño y condiciones del inmueble, tareas, frecuencia, materiales y necesidad de un profesional especializado. El precio se confirma antes de contratar.',faq4Q:'¿Realizan trabajos técnicos o de riesgo?',faq4A:'Evaluamos cada pedido. Algunos trabajos dependen de disponibilidad y de un profesional con la calificación adecuada. No comenzamos extras sin su aprobación.',faq5Q:'¿La inspección del patio incluye fumigación?',faq5A:'No. La inspección visual puede identificar recipientes con agua y orientar cuidados simples. La aplicación química o el control de plagas son servicios aparte y dependen de verificar requisitos y disponibilidad adecuados.',faq6Q:'¿El formulario guarda mis datos?',faq6A:'No. En esta versión, el formulario solo prepara un mensaje para que lo revise. Sus datos no se envían hasta que elija abrir WhatsApp.',
-        contactEyebrow:'Hablemos de su casa',contactTitle:'Cuéntenos qué quiere simplificar.',contactIntro:'Seleccione los servicios y cuéntenos dónde está el inmueble. El equipo podrá evaluar cobertura, agenda y alcance antes de preparar una propuesta.',contactAreaTitle:'Zona de atención',contactAreaText:'San Bernardino y localidades cercanas; cobertura confirmada según la dirección.',contactQuoteTitle:'Propuesta clara',contactQuoteText:'Alcance, frecuencia y extras se informan antes de contratar.',contactPrivacyTitle:'Privacidad y acceso',contactPrivacyText:'Las fotos y el acceso a la propiedad se acuerdan con usted.',labelName:'Su nombre',labelContact:'Su WhatsApp o teléfono',labelCity:'Ciudad / barrio',labelType:'Tipo de inmueble',typeHouse:'Casa',typeApartment:'Departamento',typeQuinta:'Quinta / casa de campo',typeCommercial:'Pequeño local comercial',labelFrequency:'Frecuencia deseada',freqWeekly:'Semanal',freqFortnightly:'Quincenal',freqMonthly:'Mensual',freqOneOff:'Servicio puntual',freqDiscuss:'Quiero evaluarlo',labelSize:'Tamaño aproximado',sizeSmall:'Pequeño',sizeMedium:'Mediano',sizeLarge:'Grande',sizeUnknown:'No sé / prefiero explicar',labelNotes:'¿Qué más deberíamos saber?',formSubmit:'Preparar mi pedido de presupuesto',serviceError:'Seleccione al menos un servicio arriba o explique su necesidad en las observaciones.',formPrivacy:'La página no guarda sus datos. Revise el mensaje antes de abrir WhatsApp.',
-        footerLocation:'San Bernardino, Cordillera, Paraguay',footerNote:'Cobertura y disponibilidad se confirman al consultar.',floatingCta:'Pedir presupuesto',dialogTitle:'Su pedido está listo para revisar',dialogCopy:'Revise el mensaje. Solo se enviará cuando abra WhatsApp.',copyButton:'Copiar mensaje',openWhatsapp:'Abrir WhatsApp',copyForDemo:'Copiar pedido',demoNumberNote:'El número comercial de WhatsApp debe configurarse antes de publicar. Por ahora, puede copiar el pedido.',copySuccess:'Mensaje copiado.',copyFallback:'Seleccione y copie el mensaje de arriba.',
-        msgIntro:'¡Hola! Quisiera solicitar una propuesta de servicios residenciales de A Rocha.',msgName:'Nombre',msgPhone:'Contacto',msgCity:'Ciudad/barrio',msgType:'Inmueble',msgFrequency:'Frecuencia',msgSize:'Tamaño',msgServices:'Servicios de interés',msgNotes:'Observaciones'
+        brand_sub: 'Gestión y Servicios',
+        nav_why: 'Diferenciales',
+        nav_services: 'Nuestros Servicios',
+        nav_plans: 'Planes y Precios',
+        nav_how: 'Cómo Funciona',
+        nav_contact: 'Presupuesto',
+        nav_cta: 'Pedir Presupuesto',
+        hero_badge: 'Hugua Hú • Atyrá • Altos • Caacupé • San Bernardino',
+        hero_title: 'Su Casa o Quinta Siempre Impecable. <span class="text-amber-300">Todo en Un Solo Lugar.</span>',
+        hero_subtitle: 'En <strong class="text-white font-bold">A Rocha Gestión y Servicios</strong> nos encargamos de reformas rápidas, limpieza post-obra, jardinería, mantenimiento de piscinas y casero semanal con <strong class="text-amber-300 font-semibold">reportes con fotos por WhatsApp</strong> y <strong class="text-white font-semibold">Factura Legal</strong>.',
+        hero_btn_plans: 'Ver 5 Planes y Precios',
+        hero_btn_quote: 'Presupuesto Rápido',
+        stat_1_v: 'Gestión Total',
+        stat_1: 'Mantenimiento y obras',
+        stat_2_v: '100% Visual',
+        stat_2: 'Reporte con fotos',
+        stat_3_v: 'Factura Legal',
+        stat_3: 'Empresa formalizada',
+        card_report_title: 'Reporte Semanal de Quinta',
+        card_report_sub: 'Piscina tratada, pasto cortado y casa ventilada',
+        card_status: 'Lista para el Fin de Semana',
+        why_kicker: '¿Por qué contratar a A Rocha?',
+        why_title: 'Eliminamos el dolor de cabeza de coordinar varios proveedores',
+        why_desc: 'Sabemos lo difícil que es encontrar mano de obra puntual y confiable en el interior. Creamos una gestión profesional con estándar empresarial para cuidar su propiedad.',
+        adv_1_t: 'Puntualidad y Compromiso',
+        adv_1_d: 'Cronograma estricto de visitas y plazos de entrega cumplidos al pie de la letra. Sin ausencias en medio de la obra ni excusas.',
+        adv_2_t: 'Reportes Visuales por WhatsApp',
+        adv_2_d: '¿Vive en Asunción o en el exterior? Reciba fotos del antes y después en cada visita semanal de nuestro equipo a su quinta.',
+        adv_3_t: '1 Solo Contacto Resuelve Todo',
+        adv_3_d: 'Desde el corte de pasto y limpieza de piscina hasta pintura, electricidad, aire acondicionado y limpieza post-obra bajo una única gestión.',
+        adv_4_t: 'Garantía y Factura Legal',
+        adv_4_d: 'Empresa formalizada en Paraguay, equipo uniformado, supervisión técnica y emisión de Factura para su tranquilidad.',
+        srv_kicker: 'Soluciones Integrales para Casas y Quintas',
+        srv_title: 'Todo lo que Su Propiedad Necesita en Un Solo Lugar',
+        srv_desc: 'Contamos con equipo propio polivalente y especialistas técnicos acreditados para cada necesidad en su residencia o quinta.',
+        srv_link: 'Solicitar servicio puntual',
+        s1_badge: 'Más Solicitado',
+        s1_t: 'Reformas Simples y Mantenimiento Rápido',
+        s1_l1: 'Pintura residencial y comercial (interior y exterior)',
+        s1_l2: 'Reparaciones de albañilería, revoque, pisos y juntas',
+        s1_l3: 'Instalación de durlock/yeso, cielorrasos y divisorias',
+        s1_l4: 'Electricidad y plomería básica (grifos, duchas, tomas, luminarias)',
+        s1_l5: 'Armado de muebles, cortinas, soportes de TV y estantes',
+        s2_badge: 'Alta Precisión',
+        s2_t: 'Limpieza Especializada y Post-Obra',
+        s2_l1: '<strong>Limpieza Post-Obra Fina:</strong> Remoción técnica de pintura, cemento y polvo fino sin dañar porcelanatos',
+        s2_l2: 'Limpieza profunda pre y post-mudanza',
+        s2_l3: 'Hidrolavado de techos coloniales, muros de piedra, decks y veredas',
+        s3_badge: 'Áreas Verdes',
+        s3_t: 'Jardinería y Áreas Exteriores',
+        s3_l1: 'Corte de césped, bordes y poda de árboles y arbustos',
+        s3_l2: 'Desmalezado pesado y limpieza de terrenos y lotes cerrados',
+        s3_l3: 'Abono y control preventivo de plagas (hormigas <em>ysaú</em> y termitas)',
+        s4_badge: 'Agua Cristalina',
+        s4_t: 'Mantenimiento Completo de Piscinas',
+        s4_l1: 'Aspirado, filtrado y cepillado semanal de bordes',
+        s4_l2: 'Control químico riguroso (pH, cloro, alcalinidad y alguicida)',
+        s4_l3: 'Mantenimiento preventivo de bomba, filtro y sala de máquinas',
+        s5_badge: 'Exclusivo Quintas',
+        s5_t: 'Casero y "Casa Lista"',
+        s5_l1: 'Inspección semanal, apertura para ventilación y control post-lluvia',
+        s5_l2: '<strong>Preparación Pre-Llegada:</strong> Encendemos heladera, aire acondicionado y luces antes de que llegue su familia el viernes',
+        s5_l3: 'Reporte semanal con fotos enviado por WhatsApp',
+        s6_badge: 'Confort y Técnica',
+        s6_t: 'Instalaciones Técnicas y Confort',
+        s6_l1: 'Instalación y mantenimiento de Aire Acondicionado Split',
+        s6_l2: 'Mantenimiento de bombas de pozo artesiano y riego',
+        s6_l3: 'Cámaras Wi-Fi para monitoreo remoto, reflectores solares y barniz en decks',
+        plans_kicker: 'Transparencia y Previsibilidad',
+        plans_title: '5 Planes y Combos a Medida',
+        plans_desc: 'Elija entre nuestras suscripciones mensuales de mantenimiento continuo o combos cerrados para obras y revitalización. Valores de referencia para terrenos hasta 1.000 m².',
+        plans_sub_heading: 'Suscripciones Mensuales Recurrentes (Tranquilidad Todo el Año)',
+        per_month: '/ mes (terrenos hasta 1.000 m²)',
+        closed_package: 'paquete cerrado',
+        badge_popular: '★ Más Elegido',
+        pl1_tag: 'Plan 01 • Esencial',
+        pl1_scope: 'Piscina + Jardín',
+        pl1_name: 'Piscina y Jardín',
+        pl1_desc: 'Ideal para residentes fijos que desean su área exterior siempre limpia y saludable.',
+        pl1_f1: '<strong>4 visitas mensuales</strong> de piscina (1 vez por semana)',
+        pl1_f2: 'Control químico completo + aspirado',
+        pl1_f3: '<strong>2 cortes de césped</strong> y bordes por mes',
+        pl1_f4: 'Poda ligera de mantenimiento de arbustos',
+        btn_choose_plan1: 'Contratar Plan 1',
+        pl2_tag: 'Plan 02 • Completo',
+        pl2_scope: 'Piscina + Jardín + Casero',
+        pl2_name: 'Quinta Protegida',
+        pl2_desc: 'Perfecto para quienes viven en Asunción o en el exterior y usan su quinta los fines de semana.',
+        pl2_f1: '<strong>Todo lo del Plan 1</strong> (Piscina semanal + Jardín quincenal)',
+        pl2_f2: '<strong>Casero Semanal:</strong> Apertura de la casa para ventilar',
+        pl2_f3: 'Revisión de techo, canaletas y bomba de pozo',
+        pl2_f4: 'Control preventivo contra hormigas <em>ysaú</em>',
+        pl2_f5: '<strong>Reporte semanal con fotos</strong> por WhatsApp',
+        btn_choose_plan2: 'Contratar Plan 2',
+        pl3_tag: 'Plan 03 • VIP',
+        pl3_scope: 'Gestión Total + Limpieza',
+        pl3_name: 'Fin de Semana VIP',
+        pl3_desc: 'Estándar hotelería: usted llega el viernes y la casa está limpia, fresca y lista.',
+        pl3_f1: '<strong>Todo lo del Plan 2</strong> (Piscina + Jardín + Casero)',
+        pl3_f2: '<strong>Limpieza ligera pre-llegada</strong> cada jueves o viernes',
+        pl3_f3: 'Climatización y heladera encendidas horas antes',
+        pl3_f4: '<strong>1 visita mensual de mantenimiento rápido</strong> incluida (reparaciones eléctricas/plomería)',
+        btn_choose_plan3: 'Contratar Plan 3',
+        combos_heading: 'Combos Cerrados de Alto Impacto (Post-Obra y Revitalización)',
+        cb4_tag: 'Combo 04 • Post-Obra',
+        cb4_scope: 'Limpieza Fina + Instalaciones',
+        cb4_name: 'Paquete "Llave en Mano"',
+        cb4_desc: 'Ideal para casas recién construidas o pre-mudanza (hasta 150 m²).',
+        cb4_f1: 'Limpieza post-obra fina completa',
+        cb4_f2: 'Hidrolavado de veredas exteriores',
+        cb4_f3: '1 jornada de instalador (cortinas, TV, espejos, luminarias)',
+        cb4_f4: 'Instalación de hasta 2 cámaras Wi-Fi',
+        btn_choose_cb4: 'Solicitar Combo 4',
+        cb5_tag: 'Combo 05 • Transformación',
+        cb5_scope: 'Pintura + Jardín + Piscina + Clima',
+        cb5_name: 'Revitalización Total de Quinta',
+        cb5_desc: 'Perfecto para pre-temporada de verano o puesta en valor para venta.',
+        cb5_f1: 'Hidrolavado de techo y muros',
+        cb5_f2: 'Pintura exterior de fachada/muros (hasta 120 m²)',
+        cb5_f3: 'Poda pesada, abono y tratamiento de choque en piscina',
+        cb5_f4: 'Mantenimiento de hasta 3 equipos de Aire Acondicionado',
+        btn_choose_cb5: 'Solicitar Combo 5',
+        plans_footnote: '* Para quintas con terrenos superiores a 1.000 m² (2.500 m² a 5.000 m²), aplicamos un adicional proporcional de $30 a $60 USD/mes por desmalezado extra. Consulte condiciones con IVA incluido.',
+        how_kicker: 'Proceso Simple y Profesional',
+        how_title: 'Cómo funciona nuestro servicio',
+        step1_t: 'Inspección y Presupuesto Claro',
+        step1_d: 'Nos escribe por WhatsApp, agendamos una visita técnica en Hugua Hú o zona y enviamos una propuesta detallada por escrito, sin sorpresas.',
+        step2_t: 'Ejecución Supervisada',
+        step2_d: 'Nuestro equipo uniformado o especialistas acreditados realizan el trabajo con equipos profesionales y rigurosa supervisión de calidad.',
+        step3_t: 'Entrega y Reporte Fotográfico',
+        step3_d: 'Entregamos todo limpio, enviamos las fotos del resultado por WhatsApp y emitimos su Factura Legal con garantía formal.',
+        form_kicker: 'Atención Bilingüe (ES / PT)',
+        form_title: 'Solicite su Visita o Presupuesto Ahora',
+        form_desc: 'Complete los datos al lado para generar su pedido formateado e iniciar la atención inmediata por WhatsApp con el equipo de <strong class="text-amber-300">A Rocha Gestión y Servicios</strong>.',
+        info1_t: 'Base y Área de Cobertura',
+        info1_d: 'Sede en Hugua Hú • Atención en Atyrá, Altos, Caacupé, Tobatí y San Bernardino.',
+        info2_t: 'Horario de Atención',
+        info2_d: 'Lunes a Sábado: 07:30 a 18:00 (Guardia de emergencia para suscriptores).',
+        info3_t: 'Garantía y Formalidad',
+        info3_d: 'Emisión de Factura Legal (IVA) y contrato transparente para planes mensuales.',
+        form_fast: 'Tiempo promedio de respuesta por WhatsApp: <strong class="text-white">menos de 15 minutos</strong>.',
+        lbl_name: 'Su Nombre *',
+        lbl_city: 'Ciudad / Zona de la Propiedad *',
+        opt_other_city: 'Tobatí / Otra en Cordillera',
+        lbl_plan: 'Plan o Servicio Deseado *',
+        opt_p1: 'Plan 1: Piscina y Jardín ($110–$140/mes)',
+        opt_p2: 'Plan 2: Quinta Protegida ($170–$220/mes) ★',
+        opt_p3: 'Plan 3: Fin de Semana VIP ($280–$360/mes)',
+        opt_c4: 'Combo 4: Paquete Llave en Mano ($420–$580)',
+        opt_c5: 'Combo 5: Revitalización Total ($850–$1.250)',
+        opt_single: 'Servicio Puntual (Reforma / Pintura / Mantenimiento)',
+        opt_post: 'Limpieza Post-Obra Puntual',
+        lbl_size: 'Tamaño Aproximado del Terreno',
+        opt_s1: 'Hasta 1.000 m² (Estándar)',
+        opt_s2: '1.000 m² a 2.500 m²',
+        opt_s3: '2.500 m² a 5.000 m² (Quinta Mediana)',
+        opt_s4: 'Más de 5.000 m² (Quinta Grande)',
+        lbl_notes: 'Detalles de lo que necesita (Opcional)',
+        btn_submit: 'Enviar Pedido por WhatsApp Ahora',
+        footer_brand: 'A ROCHA GESTIÓN Y SERVICIOS',
+        footer_copy: '© 2026 A Rocha Gestión y Servicios. Todos los derechos reservados. • Factura Legal y Garantía Técnica.',
+        modal_title: 'Resumen Listo para Enviar',
+        modal_btn_wa: 'Abrir WhatsApp',
+        modal_btn_close: 'Cerrar'
       }
     };
 
-    const extraTranslations = {
-      pt: {
-        heroText:'Limpeza, jardim, manutenção preventiva e serviços complementares para casas de uso contínuo e de temporada. Você escolhe entre uma assinatura modular ou um serviço pontual.',
-        usageEyebrow:'Um formato para cada jeito de viver a casa',usageTitle:'Residência habitual, casa de temporada ou uma tarefa só.',usage1Title:'Casa de uso contínuo',usage1Text:'Monte uma rotina semanal, quinzenal ou mensal de limpeza, jardim e manutenção preventiva para o dia a dia.',usage2Title:'Casa de temporada',usage2Text:'Combine preparação antes da chegada, limpeza após estadias e visitas entre períodos de uso, conforme agenda e cobertura.',usage3Title:'Serviço pontual, sem assinatura',usage3Text:'Peça uma limpeza profunda, uma visita de jardim, uma checagem após chuva ou um pequeno reparo sob orçamento.',
-        oneOffTitle:'Não quer assinar agora?',oneOffText:'Você também pode contratar apenas um serviço, sem compromisso recorrente.',oneOffButton:'Solicitar um serviço pontual',
-        faq1A:'Sim. Você pode contratar uma tarefa pontual sem assinatura ou escolher vários módulos e montar um plano recorrente para a casa.',faq2A:'Não. A proposta atende residências de uso contínuo e casas de temporada, com assinatura recorrente ou tarefas pontuais.',reportButton:'Ver relatório'
-      },
-      es: {
-        heroText:'Limpieza, jardín, mantenimiento preventivo y servicios complementarios para casas de uso habitual y de temporada. Puede elegir una suscripción modular o un servicio puntual.',
-        usageEyebrow:'Un formato para cada forma de vivir la casa',usageTitle:'Vivienda habitual, casa de temporada o una tarea puntual.',usage1Title:'Casa de uso habitual',usage1Text:'Arme una rutina semanal, quincenal o mensual de limpieza, jardín y mantenimiento preventivo para el día a día.',usage2Title:'Casa de temporada',usage2Text:'Coordine preparación antes de la llegada, limpieza después de la estadía y visitas entre períodos de uso, según agenda y cobertura.',usage3Title:'Servicio puntual, sin suscripción',usage3Text:'Solicite una limpieza profunda, una visita de jardín, una revisión después de la lluvia o una reparación menor con presupuesto.',
-        oneOffTitle:'¿No quiere suscribirse ahora?',oneOffText:'También puede contratar un solo servicio, sin compromiso recurrente.',oneOffButton:'Solicitar un servicio puntual',
-        faq1A:'Sí. Puede contratar una tarea puntual sin suscripción o elegir varios módulos y armar un plan recurrente para su casa.',faq2A:'No. La propuesta atiende viviendas de uso habitual y casas de temporada, con suscripción recurrente o tareas puntuales.',reportButton:'Ver informe'
-      }
-    };
-
-    const navLinks = document.getElementById('navLinks');
-    const menuToggle = document.getElementById('menuToggle');
-    const quoteForm = document.getElementById('quoteForm');
-    const requestDialog = document.getElementById('requestDialog');
-    const selectedInputs = () => Array.from(document.querySelectorAll('input[name="services"]:checked'));
-
-    function t(key) { return (extraTranslations[currentLanguage] && extraTranslations[currentLanguage][key]) || (translations[currentLanguage] && translations[currentLanguage][key]) || translations.pt[key] || key; }
     function setLanguage(lang) {
-      if (!translations[lang]) return;
-      currentLanguage = lang;
+      currentLang = lang;
       document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'es-PY';
+
+      const btnPt = document.getElementById('btn-pt');
+      const btnEs = document.getElementById('btn-es');
+
+      if (lang === 'pt') {
+        btnPt.className = 'px-2.5 py-1.5 rounded-lg text-xs font-extrabold transition bg-amber-400 text-slate-950';
+        btnEs.className = 'px-2.5 py-1.5 rounded-lg text-xs font-extrabold transition text-white hover:text-amber-300';
+        document.getElementById('clientName').placeholder = 'Ex: Carlos Silva';
+        document.getElementById('clientNotes').placeholder = 'Ex: Tenho uma quinta em Hugua Hú com piscina de 8x4m, preciso de manutenção semanal e pintura do muro...';
+        document.getElementById('floatingWaBtn').href = 'https://wa.me/595981000000?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20da%20A%20Rocha%20Gest%C3%A3o%20e%20Servi%C3%A7os.';
+      } else {
+        btnEs.className = 'px-2.5 py-1.5 rounded-lg text-xs font-extrabold transition bg-amber-400 text-slate-950';
+        btnPt.className = 'px-2.5 py-1.5 rounded-lg text-xs font-extrabold transition text-white hover:text-amber-300';
+        document.getElementById('clientName').placeholder = 'Ej: Carlos Silva';
+        document.getElementById('clientNotes').placeholder = 'Ej: Tengo una quinta en Hugua Hú con piscina de 8x4m, necesito mantenimiento semanal y pintura del muro...';
+        document.getElementById('floatingWaBtn').href = 'https://wa.me/595981000000?text=%C2%A1Hola!%20Quisiera%20un%20presupuesto%20de%20A%20Rocha%20Gesti%C3%B3n%20y%20Servicios.';
+      }
+
       document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.dataset.i18n;
-        const translated = (extraTranslations[lang] && extraTranslations[lang][key]) || translations[lang][key];
-        if (translated) el.textContent = translated;
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
       });
-      document.querySelectorAll('[data-placeholder-pt]').forEach(el => {
-        const value = lang === 'pt' ? el.dataset.placeholderPt : el.dataset.placeholderEs;
-        if (value) el.placeholder = value;
-      });
-      document.getElementById('langPt').setAttribute('aria-pressed', String(lang === 'pt'));
-      document.getElementById('langEs').setAttribute('aria-pressed', String(lang === 'es'));
-      document.querySelectorAll('input[name="services"]').forEach(el => {
-        const label = lang === 'pt' ? el.dataset.labelPt : el.dataset.labelEs;
-        el.setAttribute('aria-label', label || '');
-      });
-      try { localStorage.setItem('a-rocha-language', lang); } catch (_) {}
-      updateSelection();
     }
-    try {
-      const savedLanguage = localStorage.getItem('a-rocha-language');
-      if (savedLanguage && translations[savedLanguage]) currentLanguage = savedLanguage;
-    } catch (_) {}
-    setLanguage(currentLanguage);
-
-    menuToggle.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', String(open));
-      menuToggle.setAttribute('aria-label', open ? (currentLanguage === 'pt' ? 'Fechar menu' : 'Cerrar menú') : (currentLanguage === 'pt' ? 'Abrir menu' : 'Abrir menú'));
-    });
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded','false');
-    }));
-
-    function updateSelection() {
-      const n = selectedInputs().length;
-      const count = document.getElementById('selectedCount');
-      const label = document.getElementById('selectionLabel');
-      if (!n) {
-        count.textContent = t('noneSelected');
-        label.textContent = t('selectionDefault');
-      } else {
-        count.textContent = currentLanguage === 'pt' ? (n === 1 ? t('selectedOne') : `${n} ${t('selectedMany')}`) : (n === 1 ? t('selectedOne') : `${n} ${t('selectedMany')}`);
-        label.textContent = count.textContent;
-      }
-      document.getElementById('serviceError').classList.remove('show');
-    }
-    document.querySelectorAll('input[name="services"]').forEach(el => el.addEventListener('change', updateSelection));
-
-    const presets = {
-      essencial: ['limpeza','jardim'],
-      cuidada: ['limpeza','jardim','checkup','chuva'],
-      completa: ['limpeza','jardim','checkup','chuva','hidraulica','piscina','ar','vetores','ausencia','reparos']
-    };
-    document.querySelectorAll('.preset-button').forEach(btn => btn.addEventListener('click', () => {
-      const chosen = new Set(presets[btn.dataset.preset] || []);
-      document.querySelectorAll('input[name="services"]').forEach(input => { input.checked = chosen.has(input.value); });
-      updateSelection();
-      document.getElementById('contato').scrollIntoView({behavior:'smooth'});
-    }));
-    document.getElementById('oneOffCta').addEventListener('click', () => {
-      document.getElementById('frequency').value = 'avulso';
-      document.getElementById('contato').scrollIntoView({behavior:'smooth'});
-    });
-
-    function buildMessage() {
-      const val = id => document.getElementById(id).value.trim();
-      const services = selectedInputs().map(input => currentLanguage === 'pt' ? input.dataset.labelPt : input.dataset.labelEs);
-      const selectedOption = id => {
-        const el = document.getElementById(id);
-        return el.options[el.selectedIndex].text;
-      };
-      const lines = [
-        t('msgIntro'), '',
-        `• ${t('msgName')}: ${val('clientName')}`,
-        `• ${t('msgPhone')}: ${val('clientContact')}`,
-        `• ${t('msgCity')}: ${val('clientCity')}`,
-        `• ${t('msgType')}: ${selectedOption('propertyType')}`,
-        `• ${t('msgFrequency')}: ${selectedOption('frequency')}`,
-        `• ${t('msgSize')}: ${selectedOption('size')}`,
-        `• ${t('msgServices')}: ${services.join(', ')}`
-      ];
-      if (val('notes')) lines.push(`• ${t('msgNotes')}: ${val('notes')}`);
-      return lines.join('\n');
-    }
-    quoteForm.addEventListener('submit', event => {
-      event.preventDefault();
-      if (!quoteForm.reportValidity()) return;
-      if (!selectedInputs().length && !document.getElementById('notes').value.trim()) {
-        document.getElementById('serviceError').classList.add('show');
-        document.querySelector('.service-toolbar').scrollIntoView({behavior:'smooth',block:'center'});
-        return;
-      }
-      const message = buildMessage();
-      document.getElementById('messagePreview').textContent = message;
-      const waLink = document.getElementById('openWhatsapp');
-      const demoCopy = document.getElementById('copyForDemo');
-      const demoNote = document.getElementById('demoNumberNote');
-      const status = document.getElementById('dialogStatus');
-      status.textContent = '';
-      if (BUSINESS_WHATSAPP && /^\d{8,15}$/.test(BUSINESS_WHATSAPP)) {
-        waLink.href = `https://wa.me/${BUSINESS_WHATSAPP}?text=${encodeURIComponent(message)}`;
-        waLink.hidden = false;
-        demoCopy.hidden = true;
-        demoNote.hidden = true;
-      } else {
-        waLink.hidden = true;
-        demoCopy.hidden = false;
-        demoNote.hidden = false;
-      }
-      requestDialog.showModal();
-    });
-    document.getElementById('dialogClose').addEventListener('click', () => requestDialog.close());
-    document.getElementById('copyMessage').addEventListener('click', async () => {
-      const text = document.getElementById('messagePreview').textContent;
-      try { await navigator.clipboard.writeText(text); document.getElementById('dialogStatus').textContent = t('copySuccess'); }
-      catch (_) { document.getElementById('dialogStatus').textContent = t('copyFallback'); }
-    });
-    document.getElementById('copyForDemo').addEventListener('click', async () => {
-      const text = document.getElementById('messagePreview').textContent;
-      try { await navigator.clipboard.writeText(text); document.getElementById('dialogStatus').textContent = t('copySuccess'); }
-      catch (_) { document.getElementById('dialogStatus').textContent = t('copyFallback'); }
-    });
   </script>
 </body>
 </html>
